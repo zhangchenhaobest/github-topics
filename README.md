@@ -1,17 +1,7 @@
 # github-topics
 
-research-development-agent
-
-research-agent
-
-development-agent
-
-research-models
-
-visualization-models
-
-research-development-agent
-research-agent
+research-development-agent<br>
+research-agent<br>
 development-agent
 research-models
 visualization-models
