@@ -1,6 +1,6 @@
 research-development-agent<br>
 research-agent<br>
-development-agent<br>
+development-agent<br> 
 research-models<br>
 visualization-models<br>
 visualization<br>
@@ -49,6 +49,7 @@ optical-character-recognition<br>
 knowledge-graph<br>
 claude-code<br>
 agents<br>
+multi-agent<br>
 data-scientist<br>
 models<br>
 model<br>
@@ -78,8 +79,10 @@ gcn<br>
 information-integration<br>
 voice-to-text<br>
 text-to-voice<br>
+video-to-text<br>
 nlp<br>
 data-set<br>
 database<br>
 robot<br>
 microscope<br>
+translation <br>
