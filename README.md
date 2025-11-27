@@ -80,6 +80,9 @@ information-integration<br>
 voice-to-text<br>
 text-to-voice<br>
 video-to-text<br>
+voice-to-voice<br>
+picture-to-voice<br>
+video-to-voice<br>
 nlp<br>
 data-set<br>
 database<br>
