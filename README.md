@@ -90,3 +90,4 @@ robot<br>
 microscope<br>
 translation <br>
 lims<br>
+objectstorage<br>
