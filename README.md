@@ -75,6 +75,7 @@ video-generation<br>
 working<br>
 gis<br>
 spatiotemporal-data-analysis<br>
+spatiotemporal forecasting<br>
 gcn<br>
 information-integration<br>
 voice-to-text<br>
@@ -92,4 +93,3 @@ translation <br>
 lims<br>
 objectstorage<br>
 web-agent<br>
-Spatiotemporal forecasting<br>
