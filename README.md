@@ -94,3 +94,4 @@ lims<br>
 objectstorage<br>
 web-agent<br>
 terminal-agent‌<br>
+paper-writing-agent<br>
