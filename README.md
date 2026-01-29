@@ -93,3 +93,4 @@ translation <br>
 lims<br>
 objectstorage<br>
 web-agent<br>
+terminal-agent‌<br>
