@@ -1,5 +1,6 @@
 research-development-agent<br>
 research-agent<br>
+write-paper-agent<br>
 development-agent<br> 
 research-models<br>
 visualization-models<br>
