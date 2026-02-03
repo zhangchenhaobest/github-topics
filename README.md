@@ -97,4 +97,4 @@ terminal-agent<br>
 paper-writing-agent<br>
 office<br>
 prompt-engineering<br>
-Skill<br>
+skill<br>
