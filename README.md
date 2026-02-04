@@ -87,6 +87,7 @@ video-to-voice<br>
 nlp<br>
 data-set<br>
 database<br>
+text-to-sql<br>
 robot<br>
 microscope<br>
 translation <br>
