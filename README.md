@@ -100,3 +100,4 @@ paper-writing-agent<br>
 office<br>
 prompt-engineering<br>
 skill<br>
+memory-plugin<br>
