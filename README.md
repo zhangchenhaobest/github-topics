@@ -48,6 +48,7 @@ ocr<br>
 optical-character-recognition<br>
 knowledge-graph<br>
 claude-code<br>
+build-agents<br>
 agents<br>
 multi-agent<br>
 data-scientist<br>
