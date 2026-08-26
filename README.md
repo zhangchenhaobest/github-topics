@@ -97,6 +97,7 @@ objectstorage<br>
 web-agent<br>
 terminal-agent<br>
 windows-agent<br>
+AI-Operating-System<br>
 paper-writing<br>
 paper-writing-agent<br>
 office<br>
