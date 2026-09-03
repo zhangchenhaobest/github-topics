@@ -35,6 +35,7 @@ llms<br>
 web-development<br>
 application-development<br>
 computer-vision<br>
+3d-reconstruction<br>
 object-detection<br>
 image-processing<br>
 autopilot<br>
