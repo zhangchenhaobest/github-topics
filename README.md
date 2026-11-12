@@ -104,7 +104,6 @@ n8n-mcp
 remote-control
 spider
 tool
-toolutility
 utility
 web-mcp
 windows-mcp
@@ -122,7 +121,6 @@ image-processing
 microscope
 object-detection
 ocr
-omnipartser
 optical-character-recognition
 radar
 video-generation
@@ -169,7 +167,6 @@ visualization-models
 ```
 application-development
 github-app-store
-githubdaily
 lims
 network
 security
@@ -231,7 +228,6 @@ bid
 find-job
 office
 product-manager
-secretary
 working
 ```
 
@@ -267,7 +263,8 @@ study-materials
 | 基线 | `046449535bede44cb34aacbb5e4598fea8afd84e` | 原始 115 行平铺清单，无分类 |
 | 第一轮 | `5c8bce24075f78aa70836bbf71147d31e087d89c` | 9 大分类、108 个规范 slug |
 | 第二轮 | `fd761143016f10d611427e27c8f8e2fbc102b5ca` | 10 大分类；数据集、生物、科研、学习拆分；1 处改名 |
-| 第三轮（本版） | 2026-11-12 账号标签核对 | 补齐 6 个账号在用但清单外标签，108 → 114 个 slug |
+| 第三轮 | 2026-11-12 账号标签核对 | 补齐 6 个账号在用但清单外标签，108 → 114 个 slug |
+| 第四轮（本版） | 2026-11-12 项目名/笔误标签清理 | 移除 4 个项目名与连写笔误标签，114 → 110 个 slug；同步调整 4 个仓库的线上 Topics |
 
 完整差异：[compare 0464495...main](https://github.com/zhangchenhaobest/github-topics/compare/046449535bede44cb34aacbb5e4598fea8afd84e...main)
 
@@ -328,7 +325,7 @@ study-materials
 
 ### D. 第二轮 → 第三轮：补齐账号在用标签
 
-对照账号全部仓库的线上 Topics，把「仓库在用、清单未登记」的 6 个标签全部纳入主清单，清单 108 → 114。盘点快照见 `topics-latest.md`。
+对照账号全部仓库的线上 Topics，把「仓库在用、清单未登记」的 6 个标签全部纳入主清单，清单 108 → 114。盘点快照见 `topics-latest.md`。其中 4 项（`secretary`、`githubdaily`、`omnipartser`、`toolutility`）已在第四轮移除，见下方 F 节；本表保留作为历史记录。
 
 | 标签 | 实际频次 | 所在仓库 | 纳入分组 | 备注 |
 | --- | ---: | --- | --- | --- |
@@ -352,7 +349,20 @@ study-materials
 | `visualization` | `data-visualization`、`visualization-models` | 三者语义有差别，确认后再合并 |
 | `data-set` | `dataset-management` | 同属 02 数据集，一个指本体一个指管理，暂保留 |
 
-**统计**：基线 115 行（114 个唯一值）→ 114 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个账号在用标签）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处。三级分类结构自第二轮起未再变动。
+### F. 第三轮 → 第四轮：清理项目名与笔误标签
+
+第三轮补齐的 6 个标签中，2 个是项目名（其中 `omnipartser` 为误拼）、1 个是 `tool` + `utility` 连写笔误、1 个是过窄的场景标签，作为通用主题检索价值低。本轮从清单移除，并把对应仓库的 Topics 改为清单内已有的通用标签，**不新增任何 slug**。
+
+| 移除标签 | 原分组 | 类型 | 关联仓库 | 该仓库新 Topics |
+| --- | --- | --- | --- | --- |
+| `secretary` | 10.6 职场与效率 | 过窄的场景标签 | MineContext | `office`, `research-agent` |
+| `githubdaily` | 09 开发与系统 | 项目名 | GitHubDaily | `study-materials` |
+| `omnipartser` | 06 视觉与多模态生成 | 项目名（且为 `OmniParser` 误拼） | OmniParser | `computer-vision`, `web-agent` |
+| `toolutility` | 05 MCP 与工具链 | `tool` + `utility` 连写笔误 | marin | `utility`, `research-development-agent` |
+
+四个标签在账号内各只出现 1 次，移除后清单与账号在用标签恢复双向零差异：114 → 110 个 slug。各分组内部字母序保持不变。
+
+**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处。三级分类结构自第二轮起未再变动。
 
 ## 待确认项
 
@@ -362,6 +372,5 @@ study-materials
 - `microscope`、`radar`、`biology` 与 AI 主线跨度较大，若继续扩充可独立成「其他领域」。
 - `lims` 现按「软件属性」归 09 开发与系统；若按「领域属性」则应归 10.3 生物，两种口径需择一。
 - `medical-dataset` 已归 02 数据集，10.2 医疗健康只做了文字交叉引用；若希望按领域浏览时能看到它，可在 10.2 增加链接列表。
-- `toolutility` 系 `tool` + `utility` 连写笔误，第三轮按用户要求纳入 05；建议后续在仓库侧改为 `tool` / `utility`、删除该标签，并同步从清单移除。
-- `githubdaily`、`omnipartser` 与 `claude-code`、`n8n-mcp`、`github-app-store` 同为项目名而非通用主题，第三轮按用户要求纳入；确认是否长期保留。
+- `toolutility`（连写笔误）、`githubdaily` / `omnipartser`（项目名）、`secretary`（过窄场景标签）已于第四轮从清单移除，并同步修正 4 个仓库的线上 Topics，见 F 节；此项已结案。
 - 若希望全清单严格按字母序检索，可在文末追加一份「按字母序索引」章节，与主分类并存。
