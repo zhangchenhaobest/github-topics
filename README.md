@@ -2,19 +2,20 @@
 
 一份用于给仓库打标签的 GitHub Topics 清单，按「技术底座 → 能力层 → 应用场景」组织。
 
-> 维护规则见 [排序与维护规范](#排序与维护规范)，历史变更见 [变更映射表](#变更映射表)。
+> 维护规则见 [排序与维护规范](#排序与维护规范)，完整变更见 [变更映射表](#变更映射表)。
 
 ## 目录
 
 - [01 模型与训练](#01-模型与训练-models--training)
-- [02 检索增强与知识工程](#02-检索增强与知识工程-rag--knowledge)
-- [03 Agent 与编排](#03-agent-与编排-agents--orchestration)
-- [04 MCP 与工具链](#04-mcp-与工具链-mcp--tooling)
-- [05 视觉与多模态生成](#05-视觉与多模态生成-vision--multimodal)
-- [06 语音与跨模态转换](#06-语音与跨模态转换-speech--conversion)
-- [07 数据、可视化与时空](#07-数据可视化与时空-data--visualization--spatiotemporal)
-- [08 开发与系统](#08-开发与系统-development--systems)
-- [09 垂直领域与场景](#09-垂直领域与场景-domains--use-cases)
+- [02 数据集](#02-数据集-datasets)
+- [03 检索增强与知识工程](#03-检索增强与知识工程-rag--knowledge)
+- [04 Agent 与编排](#04-agent-与编排-agents--orchestration)
+- [05 MCP 与工具链](#05-mcp-与工具链-mcp--tooling)
+- [06 视觉与多模态生成](#06-视觉与多模态生成-vision--multimodal)
+- [07 语音与跨模态转换](#07-语音与跨模态转换-speech--conversion)
+- [08 数据、可视化与时空](#08-数据可视化与时空-data--visualization--spatiotemporal)
+- [09 开发与系统](#09-开发与系统-development--systems)
+- [10 垂直领域与场景](#10-垂直领域与场景-domains--use-cases)
 - [排序与维护规范](#排序与维护规范)
 - [变更映射表](#变更映射表)
 - [待确认项](#待确认项)
@@ -23,12 +24,10 @@
 
 ## 01 模型与训练 Models & Training
 
-基础模型、训练方法、评测与模型/数据集管理。
+基础模型、训练方法、评测与模型管理。数据集相关标签已拆分至 [02 数据集](#02-数据集-datasets)。
 
 ```
 ai-framework
-data-set
-dataset-management
 evaluation
 llm
 model
@@ -40,7 +39,17 @@ time-series-forecasting-pipeline
 time-series-model
 ```
 
-## 02 检索增强与知识工程 RAG & Knowledge
+## 02 数据集 Datasets
+
+数据集本体及其管理，含领域数据集。**与数据管理软件 `database` 不是一类**：`data-set` 是数据集，`database` 是数据库软件，归 [08](#08-数据可视化与时空-data--visualization--spatiotemporal)。
+
+```
+data-set
+dataset-management
+medical-dataset
+```
+
+## 03 检索增强与知识工程 RAG & Knowledge
 
 检索、语义匹配、知识图谱与结构化查询。
 
@@ -55,9 +64,9 @@ semantic-retrieval
 text-to-sql
 ```
 
-## 03 Agent 与编排 Agents & Orchestration
+## 04 Agent 与编排 Agents & Orchestration
 
-通用智能体框架、编排、记忆与提示工程。领域专属 Agent 归入 [09](#09-垂直领域与场景-domains--use-cases)。
+通用智能体框架、编排、记忆与提示工程。领域专属 Agent 归入 [10](#10-垂直领域与场景-domains--use-cases)，科研类 Agent 归 [10.4 科研](#104-科研-research)。
 
 ```
 agents
@@ -72,8 +81,6 @@ memory-plugin
 multi-agent
 prompt-engineering
 prompt-optimizer
-research-agent
-research-development-agent
 skill
 terminal-agent
 train-agents
@@ -82,7 +89,7 @@ windows-agent
 workflow
 ```
 
-## 04 MCP 与工具链 MCP & Tooling
+## 05 MCP 与工具链 MCP & Tooling
 
 MCP Server、命令行工具、爬虫与远程控制。
 
@@ -101,7 +108,7 @@ web-mcp
 windows-mcp
 ```
 
-## 05 视觉与多模态生成 Vision & Multimodal
+## 06 视觉与多模态生成 Vision & Multimodal
 
 计算机视觉、图像/视频处理与生成。
 
@@ -118,7 +125,7 @@ radar
 video-generation
 ```
 
-## 06 语音与跨模态转换 Speech & Conversion
+## 07 语音与跨模态转换 Speech & Conversion
 
 语音、文本、图像、视频之间的相互转换。
 
@@ -132,9 +139,9 @@ voice-to-text
 voice-to-voice
 ```
 
-## 07 数据、可视化与时空 Data, Visualization & Spatiotemporal
+## 08 数据、可视化与时空 Data, Visualization & Spatiotemporal
 
-数据治理、可视化、数据库与时空/图数据分析。
+数据治理、可视化、数据库软件与时空/图数据分析。`database` 在此表示**数据管理软件**；数据集见 [02](#02-数据集-datasets)。
 
 ```
 data-extraction
@@ -151,25 +158,25 @@ visualization
 visualization-models
 ```
 
-## 08 开发与系统 Development & Systems
+## 09 开发与系统 Development & Systems
 
-应用开发、平台、网络与基础设施。
+应用开发、平台、网络、安全与行业信息系统。
 
 ```
 application-development
 github-app-store
+lims
 network
-office
 security
 virtualization
 web-development
 ```
 
-## 09 垂直领域与场景 Domains & Use Cases
+## 10 垂直领域与场景 Domains & Use Cases
 
 按行业/场景归类的标签，含该领域专属 Agent。
 
-### 09.1 金融 Finance
+### 10.1 金融 Finance
 
 ```
 finance
@@ -177,57 +184,87 @@ quantitative-trading
 trading-agent
 ```
 
-### 09.2 医疗健康 Healthcare
+### 10.2 医疗健康 Healthcare
+
+医疗领域数据集 `medical-dataset` 已归 [02 数据集](#02-数据集-datasets)。
 
 ```
 medical
-medical-database
 medical-evaluation-framework
 medical-llm
 medical-research-agent
 ```
 
-### 09.3 生物与科研 Bio & Research
+### 10.3 生物 Biology
 
 ```
 biology
-language-learning
-lims
-paper-writing
-paper-writing-agent
-study-materials
 ```
 
-### 09.4 自动驾驶与机器人 Autonomy & Robotics
+### 10.4 科研 Research
+
+科研写作与科研智能体，含通用 Agent 中拆出的 `research-*` 标签。
+
+```
+paper-writing
+paper-writing-agent
+research-agent
+research-development-agent
+```
+
+### 10.5 自动驾驶与机器人 Autonomy & Robotics
 
 ```
 autopilot
 robot
 ```
 
-### 09.5 职场与效率 Work & Productivity
+### 10.6 职场与效率 Work & Productivity
 
 ```
 bid
 find-job
+office
 product-manager
 working
+```
+
+### 10.7 学习 Learning
+
+学习资料与语言学习，从原「生物与科研」独立。
+
+```
+language-learning
+study-materials
 ```
 
 ---
 
 ## 排序与维护规范
 
-1. **一级分类固定编号 01–09**，按认知链路排列：模型底座 → 检索能力 → Agent 能力 → 工具链 → 多模态 → 数据 → 工程 → 行业应用。不按字母序，也不按添加时间。
+1. **一级分类固定编号 01–10**，按认知链路排列：模型底座 → 数据集 → 检索能力 → Agent 能力 → 工具链 → 多模态 → 数据 → 工程 → 行业应用。不按字母序，也不按添加时间。
 2. **组内一律按字母序（A→Z）**，数字开头的 slug（如 `3d-reconstruction`）排在组首。便于查找、code review 和脚本 diff。
-3. **每个 slug 只出现一次**；跨领域标签按其最核心语义归组，领域专属 Agent 归 09。
+3. **每个 slug 只出现一次**；跨领域标签按其最核心语义归组，领域专属 Agent 归 10。
 4. **命名统一**：全小写 kebab-case，只含 `a-z` `0-9` `-`，不含空格、不含尾随空格，长度 ≤ 35 字符（GitHub Topics 硬性要求）；单复数统一用单数。
-5. **新增流程**：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记。
-6. **格式**：组内用纯文本代码块，一行一个 slug，方便直接复制去 GitHub 打标签；不再使用 `<br>` 硬换行。
+5. **语义边界**：`data-set` / `*-dataset` / `dataset-management` 表示数据集，归 02；`database` / `*-mcp` 表示数据管理软件，归 08 / 05；`research-*` 等科研 Agent 归 10.4，不放 04。
+6. **新增流程**：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记（含基线 commit 与前后位置）。
+7. **格式**：组内用纯文本代码块，一行一个 slug，方便直接复制去 GitHub 打标签；不再使用 `<br>` 硬换行。
 
 ## 变更映射表
 
-本次整理对原清单的处理（原 → 新）：
+### 版本基线
+
+映射表以原始清单的最后一个提交为基线，向下累计维护，不覆盖历史记录：
+
+| 阶段 | commit | 内容 |
+| --- | --- | --- |
+| 基线 | `046449535bede44cb34aacbb5e4598fea8afd84e` | 原始 115 行平铺清单，无分类 |
+| 第一轮 | `5c8bce24075f78aa70836bbf71147d31e087d89c` | 9 大分类、108 个规范 slug |
+| 第二轮（本版） | 2026-11-12 分类细化 | 10 大分类；数据集、生物、科研、学习拆分；1 处改名 |
+
+完整差异：[compare 0464495...main](https://github.com/zhangchenhaobest/github-topics/compare/046449535bede44cb34aacbb5e4598fea8afd84e...main)
+
+### A. 基线 → 第一轮：命名与去重
 
 | 类型 | 原值 | 新值 | 说明 |
 | --- | --- | --- | --- |
@@ -236,27 +273,71 @@ working
 | 单复数 | `models` | `model` | 统一单数 |
 | 单复数 | `tools` | `tool` | 统一单数 |
 | 单复数 | `medical-llms` | `medical-llm` | 统一单数 |
-| 单复数 | `medical-databases` | `medical-database` | 统一单数 |
+| 单复数 | `medical-databases` | `medical-database` | 统一单数，第二轮再改为 `medical-dataset` |
 | 单复数 | `time-series-models` | `time-series-model` | 统一单数 |
 | 非法 slug | `spatiotemporal forecasting` | `spatiotemporal-forecasting` | 原值含空格，**不是合法 GitHub topic** |
 | 格式修正 | `translation ` | `translation` | 去除尾随空格 |
 | 格式修正 | 每行末尾 `<br>` | Markdown 代码块 | 原文件用 HTML 换行，不利于脚本读取 |
 
-**保留但建议后续合并的同义词**（本次未删，避免已有仓库标签失效）：
+### B. 第一轮 → 本版：分类迁移与改名
+
+| 类型 | slug | 原位置 | 新位置 | 说明 |
+| --- | --- | --- | --- | --- |
+| 拆分新建 | `data-set` | 01 模型与训练 | **02 数据集** | 数据集独立成组 |
+| 拆分新建 | `dataset-management` | 01 模型与训练 | **02 数据集** | 同上 |
+| 改名 + 迁移 | `medical-database` → `medical-dataset` | 09.2 医疗健康 | **02 数据集** | 语义是数据集而非数据库软件；基线链路 `medical-databases` → `medical-database` → `medical-dataset` |
+| 领域重归 | `research-agent` | 03 Agent 与编排 | **10.4 科研** | 科研类 Agent |
+| 领域重归 | `research-development-agent` | 03 Agent 与编排 | **10.4 科研** | 科研类 Agent |
+| 拆分组 | `biology` | 09.3 生物与科研 | **10.3 生物** | 生物与科研拆开 |
+| 拆分组 | `paper-writing` | 09.3 生物与科研 | **10.4 科研** | 同上 |
+| 拆分组 | `paper-writing-agent` | 09.3 生物与科研 | **10.4 科研** | 同上 |
+| 独立成组 | `study-materials` | 09.3 生物与科研 | **10.7 学习** | 学习独立 |
+| 独立成组 | `language-learning` | 09.3 生物与科研 | **10.7 学习** | 学习独立 |
+| 迁移 | `lims` | 09.3 生物与科研 | **09 开发与系统** | 实验室信息系统属软件 |
+| 迁移 | `office` | 08 开发与系统 | **10.6 职场与效率** | 办公场景 |
+| 确认保留 | `security` | 08 开发与系统 | 09 开发与系统 | 本就在系统组，仅编号顺延 |
+| 确认保留 | `bid` | 09.5 职场与效率 | 10.6 职场与效率 | 本就在职场组，仅编号顺延 |
+| 确认保留 | `database` | 07 数据、可视化与时空 | 08 数据、可视化与时空 | 数据管理软件，与数据集区分，仅编号顺延 |
+
+### C. 编号迁移
+
+| 第一轮 | 本版 | 分类 |
+| --- | --- | --- |
+| 01 | 01 | 模型与训练 |
+| — | **02** | 数据集（新增） |
+| 02 | 03 | 检索增强与知识工程 |
+| 03 | 04 | Agent 与编排 |
+| 04 | 05 | MCP 与工具链 |
+| 05 | 06 | 视觉与多模态生成 |
+| 06 | 07 | 语音与跨模态转换 |
+| 07 | 08 | 数据、可视化与时空 |
+| 08 | 09 | 开发与系统 |
+| 09 | 10 | 垂直领域与场景 |
+| 09.1 | 10.1 | 金融 |
+| 09.2 | 10.2 | 医疗健康 |
+| 09.3 | **10.3 / 10.4 / 10.7** | 生物与科研 → 拆为生物、科研、学习 |
+| 09.4 | 10.5 | 自动驾驶与机器人 |
+| 09.5 | 10.6 | 职场与效率 |
+
+### D. 保留但建议后续合并的同义词
+
+本版未删，避免已有仓库标签失效：
 
 | 主标签 | 同义/冗余标签 | 建议 |
 | --- | --- | --- |
 | `rag` | `retrieval-augmented-generation` | 保留 `rag`（GitHub 上更常用），全称可弃 |
 | `ocr` | `optical-character-recognition` | 保留 `ocr`，全称可弃 |
 | `visualization` | `data-visualization`、`visualization-models` | 三者语义有差别，确认后再合并 |
-| `database` | `data-set`、`dataset-management` | 分属不同层级，暂保留 |
+| `data-set` | `dataset-management` | 同属 02 数据集，一个指本体一个指管理，暂保留 |
 
-**统计**：原 115 行（114 个唯一值）→ 现 108 个规范 slug，合并 6 组单复数、去掉 1 个重复、修正 2 个格式问题。
+**统计**：基线 115 行（114 个唯一值）→ 108 个规范 slug（两轮均未增减主题数量）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处。
 
 ## 待确认项
 
 - `working` 语义含糊（工作求职？运行中？），建议改成 `job` / `work-automation`，或直接删除。
 - `tool`、`utility` 过于宽泛，检索价值低，建议替换为更具体的标签。
 - `claude-code`、`n8n-mcp`、`github-app-store` 是产品/项目名而非通用主题，确认是否长期保留。
-- `microscope`、`radar`、`lims`、`bid`、`biology` 与 AI 主线跨度较大，若继续扩充可独立成「10 其他领域」。
+- `microscope`、`radar`、`biology` 与 AI 主线跨度较大，若继续扩充可独立成「其他领域」。
+- `lims` 现按「软件属性」归 09 开发与系统；若按「领域属性」则应归 10.3 生物，两种口径需择一。
+- `medical-dataset` 已归 02 数据集，10.2 医疗健康只做了文字交叉引用；若希望按领域浏览时能看到它，可在 10.2 增加链接列表。
 - 若希望全清单严格按字母序检索，可在文末追加一份「按字母序索引」章节，与主分类并存。
