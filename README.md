@@ -366,11 +366,6 @@ study-materials
 
 ## 待确认项
 
-- `working` 语义含糊（工作求职？运行中？），建议改成 `job` / `work-automation`，或直接删除。
+
 - `tool`、`utility` 过于宽泛，检索价值低，建议替换为更具体的标签。
-- `claude-code`、`n8n-mcp`、`github-app-store` 是产品/项目名而非通用主题，确认是否长期保留。
-- `microscope`、`radar`、`biology` 与 AI 主线跨度较大，若继续扩充可独立成「其他领域」。
-- `lims` 现按「软件属性」归 09 开发与系统；若按「领域属性」则应归 10.3 生物，两种口径需择一。
-- `medical-dataset` 已归 02 数据集，10.2 医疗健康只做了文字交叉引用；若希望按领域浏览时能看到它，可在 10.2 增加链接列表。
-- `toolutility`（连写笔误）、`githubdaily` / `omnipartser`（项目名）、`secretary`（过窄场景标签）已于第四轮从清单移除，并同步修正 4 个仓库的线上 Topics，见 F 节；此项已结案。
-- 若希望全清单严格按字母序检索，可在文末追加一份「按字母序索引」章节，与主分类并存。
+- E. 保留但建议后续合并的同义词
