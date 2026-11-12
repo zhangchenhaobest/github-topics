@@ -358,7 +358,7 @@ study-materials
 | `secretary` | 10.6 职场与效率 | 过窄的场景标签 | MineContext | `office`, `research-agent` |
 | `githubdaily` | 09 开发与系统 | 项目名 | GitHubDaily | `study-materials` |
 | `omnipartser` | 06 视觉与多模态生成 | 项目名（且为 `OmniParser` 误拼） | OmniParser | `computer-vision`, `web-agent` |
-| `toolutility` | 05 MCP 与工具链 | `tool` + `utility` 连写笔误 | marin | `utility`, `research-development-agent` |
+| `toolutility` | 05 MCP 与工具链 | `tool` + `utility` 连写笔误 | marin | `utility`, `research-development-agent`, `tool` |
 
 四个标签在账号内各只出现 1 次，移除后清单与账号在用标签恢复双向零差异：114 → 110 个 slug。各分组内部字母序保持不变。
 
