@@ -391,3 +391,7 @@ study-material
 
 - `tool`、`utility` 过于宽泛，检索价值低，建议替换为更具体的标签。
 - E. 保留但建议后续合并的同义词
+
+## 已知例外
+
+- **`agentic-design-patterns-cn`**：因 DMCA 版权限制（GitHub 于 2026-03-05 依据 Springer Nature 的投诉屏蔽该仓库，API 返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics。第五轮单复数改名后，该仓库仍保留旧标签 `agents`、`study-materials`，因此线上在用标签为 112 个，比清单多 2 个；清单 110 个 slug 本身全部在用、无清单独有项。上文 D 节的「双向零差异」为第五轮执行前的盘点快照，此后以本例外为准。此为平台限制导致，不影响清单本身的有效性。
