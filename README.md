@@ -13,7 +13,7 @@
 - [05 MCP 与工具链](#05-mcp-与工具链-mcp--tooling)
 - [06 视觉与多模态生成](#06-视觉与多模态生成-vision--multimodal)
 - [07 语音与跨模态转换](#07-语音与跨模态转换-speech--conversion)
-- [08 数据、可视化与时空](#08-数据可视化与时空-data--visualization--spatiotemporal)
+- [08 数据、可视化与时空](#08-数据可视化与时空-data-visualization--spatiotemporal)
 - [09 开发与系统](#09-开发与系统-development--systems)
 - [10 垂直领域与场景](#10-垂直领域与场景-domains--use-cases)
 - [排序与维护规范](#排序与维护规范)
@@ -41,7 +41,7 @@ time-series-model
 
 ## 02 数据集 Datasets
 
-数据集本体及其管理，含领域数据集。**与数据管理软件 `database` 不是一类**：`data-set` 是数据集，`database` 是数据库软件，归 [08](#08-数据可视化与时空-data--visualization--spatiotemporal)。
+数据集本体及其管理，含领域数据集。**与数据管理软件 `database` 不是一类**：`data-set` 是数据集，`database` 是数据库软件，归 [08](#08-数据可视化与时空-data-visualization--spatiotemporal)。
 
 ```
 data-set
@@ -70,9 +70,9 @@ web-search
 通用智能体框架、编排、记忆与提示工程。领域专属 Agent 归入 [10](#10-垂直领域与场景-domains--use-cases)，科研类 Agent 归 [10.4 科研](#104-科研-research)。
 
 ```
-agents
+agent
 ai-operating-system
-build-agents
+build-agent
 chatbot
 chatbot-framework
 claude-code
@@ -84,7 +84,7 @@ prompt-engineering
 prompt-optimizer
 skill
 terminal-agent
-train-agents
+train-agent
 web-agent
 windows-agent
 workflow
@@ -153,7 +153,7 @@ data-visualization
 database
 gcn
 gis
-objectstorage
+object-storage
 spatiotemporal-data-analysis
 spatiotemporal-forecasting
 visualization
@@ -237,7 +237,7 @@ working
 
 ```
 language-learning
-study-materials
+study-material
 ```
 
 ---
@@ -247,7 +247,7 @@ study-materials
 1. **一级分类固定编号 01–10**，按认知链路排列：模型底座 → 数据集 → 检索能力 → Agent 能力 → 工具链 → 多模态 → 数据 → 工程 → 行业应用。不按字母序，也不按添加时间。
 2. **组内一律按字母序（A→Z）**，数字开头的 slug（如 `3d-reconstruction`）排在组首。便于查找、code review 和脚本 diff。
 3. **每个 slug 只出现一次**；跨领域标签按其最核心语义归组，领域专属 Agent 归 10。
-4. **命名统一**：全小写 kebab-case，只含 `a-z` `0-9` `-`，不含空格、不含尾随空格，长度 ≤ 35 字符（GitHub Topics 硬性要求）；单复数统一用单数。
+4. **命名统一**：全小写 kebab-case，只含 `a-z` `0-9` `-`，不含空格、不含尾随空格；长度**建议 ≤ 35 字符**（GitHub Topics **官方上限 50 字符**），**每个仓库最多 20 个 topics**。单一概念一律用单数（`agent`、`build-agent`、`train-agent`、`study-material`），复数仅用于表示集合类的标签（如 `research-models`、`visualization-models`）。
 5. **语义边界**：`data-set` / `*-dataset` / `dataset-management` 表示数据集，归 02；`database` / `*-mcp` 表示数据管理软件，归 08 / 05；`research-*` 等科研 Agent 归 10.4，不放 04。
 6. **新增流程**：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记（含基线 commit 与前后位置）。
 7. **格式**：组内用纯文本代码块，一行一个 slug，方便直接复制去 GitHub 打标签；不再使用 `<br>` 硬换行。
@@ -264,7 +264,8 @@ study-materials
 | 第一轮 | `5c8bce24075f78aa70836bbf71147d31e087d89c` | 9 大分类、108 个规范 slug |
 | 第二轮 | `fd761143016f10d611427e27c8f8e2fbc102b5ca` | 10 大分类；数据集、生物、科研、学习拆分；1 处改名 |
 | 第三轮 | 2026-11-12 账号标签核对 | 补齐 6 个账号在用但清单外标签，108 → 114 个 slug |
-| 第四轮（本版） | 2026-11-12 项目名/笔误标签清理 | 移除 4 个项目名与连写笔误标签，114 → 110 个 slug；同步调整 4 个仓库的线上 Topics |
+| 第四轮 | 2026-11-12 项目名/笔误标签清理 | 移除 4 个项目名与连写笔误标签，114 → 110 个 slug；同步调整 4 个仓库的线上 Topics |
+| 第五轮（本版） | 2026-11-13 规范与命名修订 | 修正官方限制表述、断链锚点与统计口径；5 处 slug 改名（单复数统一 + 连写修正），slug 总数仍为 110 |
 
 完整差异：[compare 0464495...main](https://github.com/zhangchenhaobest/github-topics/compare/046449535bede44cb34aacbb5e4598fea8afd84e...main)
 
@@ -325,7 +326,7 @@ study-materials
 
 ### D. 第二轮 → 第三轮：补齐账号在用标签
 
-对照账号全部仓库的线上 Topics，把「仓库在用、清单未登记」的 6 个标签全部纳入主清单，清单 108 → 114。盘点快照见 `topics-latest.md`。其中 4 项（`secretary`、`githubdaily`、`omnipartser`、`toolutility`）已在第四轮移除，见下方 F 节；本表保留作为历史记录。
+对照账号全部仓库的线上 Topics，把「仓库在用、清单未登记」的 6 个标签全部纳入主清单，清单 108 → 114。其中 4 项（`secretary`、`githubdaily`、`omnipartser`、`toolutility`）已在第四轮移除，见下方 F 节；本表保留作为历史记录。
 
 | 标签 | 实际频次 | 所在仓库 | 纳入分组 | 备注 |
 | --- | ---: | --- | --- | --- |
@@ -336,7 +337,9 @@ study-materials
 | `omnipartser` | 1 | OmniParser | 06 视觉与多模态生成 | 项目名 |
 | `toolutility` | 1 | marin | 05 MCP 与工具链 | 疑为 `tool` + `utility` 连写笔误，待后续修正 |
 
-数据口径：2026-11-12 18:00，618 个仓库 / 614 个带标签 / 1786 次打标。纳入后清单 114 个 slug 与账号 114 个在用标签**双向零差异**。
+数据口径（第三轮历史快照，2026-11-12 18:00）：618 个仓库 / 614 个带标签 / 1786 次打标。纳入后清单 114 个 slug 与账号 114 个在用标签**双向零差异**。
+
+**当前实测口径**（2026-11-13，公开仓库、未登录态）：**609 个仓库 / 605 个带标签 / 1774 次打标 / 110 个在用标签**，清单 110 个 slug 与之双向零差异。历史快照与当前实测的差额来自统计时点与仓库可见范围，私有仓库不在当前口径内。
 
 ### E. 保留但建议后续合并的同义词
 
@@ -362,7 +365,26 @@ study-materials
 
 四个标签在账号内各只出现 1 次，移除后清单与账号在用标签恢复双向零差异：114 → 110 个 slug。各分组内部字母序保持不变。
 
-**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处。三级分类结构自第二轮起未再变动。
+### G. 第四轮 → 第五轮：规范修订与命名统一
+
+本轮只做规范与命名修订，**不增删 slug 总数**（仍为 110 个）。历史映射表 A–F 中的旧值保留原样，仅记录当时的真实状态。
+
+| 类型 | 原值 | 新值 | 说明 |
+| --- | --- | --- | --- |
+| 连写修正 | `objectstorage` | `object-storage` | 与第四轮清理 `toolutility` 采用同一标准 |
+| 单复数统一 | `agents` | `agent` | 单一概念用单数 |
+| 单复数统一 | `build-agents` | `build-agent` | 同上 |
+| 单复数统一 | `train-agents` | `train-agent` | 同上 |
+| 单复数统一 | `study-materials` | `study-material` | 同上；`research-models`、`visualization-models` 属集合类，保留复数 |
+| 规范纠正 | 长度 ≤ 35 字符（GitHub 硬性要求） | 建议 ≤ 35 字符，**官方上限 50 字符** | 依据 GitHub 官方文档 |
+| 规范补充 | — | 每个仓库最多 20 个 topics | 依据 GitHub 官方文档 |
+| 文档修复 | `#08-…data--visualization--spatiotemporal` | `#08-…data-visualization--spatiotemporal` | 断链锚点，共 2 处 |
+| 文档修复 | 盘点快照文件的悬空引用 | 删除该引用 | 仓库内不存在该文件 |
+| 口径更新 | 618 / 614 / 1786 | 609 / 605 / 1774 / 110（2026-11-13，公开仓库、未登录态） | 原数字保留为第三轮历史快照 |
+
+5 处改名需同步更新线上仓库 Topics，涉及原标签 `agents` 40 次、`build-agents` 4 次、`train-agents` 2 次、`study-materials` 74 次、`objectstorage` 2 次打标。
+
+**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处；第五轮改名 5 处、规范与文档修订 5 项，slug 总数不变。三级分类结构自第二轮起未再变动。
 
 ## 待确认项
 
