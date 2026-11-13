@@ -51,15 +51,15 @@ medical-dataset
 
 ## 03 检索增强与知识工程 RAG & Knowledge
 
-检索、语义匹配、知识图谱与结构化查询。
+检索、语义匹配、知识图谱与结构化查询。`machine-translation` 为文本→文本的语言能力，从 [07 语音与跨模态转换](#07-语音与跨模态转换-speech--conversion) 移入，不属跨模态转换。
 
 ```
 context-aware
 information-integration
 knowledge-graph
+machine-translation
 nlp
 rag
-retrieval-augmented-generation
 semantic-retrieval
 text-to-sql
 web-search
@@ -104,7 +104,6 @@ n8n-mcp
 remote-control
 spider
 tool
-utility
 web-mcp
 windows-mcp
 ```
@@ -121,22 +120,20 @@ image-processing
 microscope
 object-detection
 ocr
-optical-character-recognition
 radar
 video-generation
 ```
 
 ## 07 语音与跨模态转换 Speech & Conversion
 
-语音、文本、图像、视频之间的相互转换。
+语音、文本、图像、视频之间的相互转换。统一采用社区通用术语 `image` / `speech` / `text`，不再混用 `picture` / `voice`；文本→文本的 `machine-translation` 已移入 [03 检索增强与知识工程](#03-检索增强与知识工程-rag--knowledge)。
 
 ```
-picture-to-voice
-text-to-voice
-translation
+image-to-speech
+speech-to-text
+text-to-speech
 video-to-text
 video-to-voice
-voice-to-text
 voice-to-voice
 ```
 
@@ -265,7 +262,8 @@ study-material
 | 第二轮 | `fd761143016f10d611427e27c8f8e2fbc102b5ca` | 10 大分类；数据集、生物、科研、学习拆分；1 处改名 |
 | 第三轮 | 2026-11-12 账号标签核对 | 补齐 6 个账号在用但清单外标签，108 → 114 个 slug |
 | 第四轮 | 2026-11-12 项目名/笔误标签清理 | 移除 4 个项目名与连写笔误标签，114 → 110 个 slug；同步调整 4 个仓库的线上 Topics |
-| 第五轮（本版） | 2026-11-13 规范与命名修订 | 修正官方限制表述、断链锚点与统计口径；5 处 slug 改名（单复数统一 + 连写修正），slug 总数仍为 110 |
+| 第五轮 | 2026-11-13 规范与命名修订 | 修正官方限制表述、断链锚点与统计口径；5 处 slug 改名（单复数统一 + 连写修正），slug 总数仍为 110 |
+| 第六轮（本版） | 2026-11-13 清单瘦身（P1） | 合并 3 个冗余/同义 slug、4 处改名、`translation` 移组，110 → 107 个 slug |
 
 完整差异：[compare 0464495...main](https://github.com/zhangchenhaobest/github-topics/compare/046449535bede44cb34aacbb5e4598fea8afd84e...main)
 
@@ -343,12 +341,12 @@ study-material
 
 ### E. 保留但建议后续合并的同义词
 
-本版未删，避免已有仓库标签失效：
+前两对已在第六轮合并（见 H 节）；其余保留，避免已有仓库标签失效：
 
 | 主标签 | 同义/冗余标签 | 建议 |
 | --- | --- | --- |
-| `rag` | `retrieval-augmented-generation` | 保留 `rag`（GitHub 上更常用），全称可弃 |
-| `ocr` | `optical-character-recognition` | 保留 `ocr`，全称可弃 |
+| `rag` | `retrieval-augmented-generation` | **第六轮已合并**：保留 `rag`，全称下线 |
+| `ocr` | `optical-character-recognition` | **第六轮已合并**：保留 `ocr`，全称下线 |
 | `visualization` | `data-visualization`、`visualization-models` | 三者语义有差别，确认后再合并 |
 | `data-set` | `dataset-management` | 同属 02 数据集，一个指本体一个指管理，暂保留 |
 
@@ -384,14 +382,32 @@ study-material
 
 5 处改名需同步更新线上仓库 Topics，涉及原标签 `agents` 40 次、`build-agents` 4 次、`train-agents` 2 次、`study-materials` 74 次、`objectstorage` 2 次打标。
 
-**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处；第五轮改名 5 处、规范与文档修订 5 项，slug 总数不变。三级分类结构自第二轮起未再变动。
+### H. 第五轮 → 第六轮：清单瘦身（P1）
+
+本轮合并 100% 共现的同义/冗余标签、统一 07 组术语，并把 `translation` 移出跨模态组。历史映射表 A–G 中的旧值保留原样。
+
+| 类型 | 原值 | 新值 | 涉及打标 | 说明 |
+| --- | --- | --- | ---: | --- |
+| 同义合并 | `retrieval-augmented-generation` | `rag` | 21 | 21/21 完全共现，零损失 |
+| 同义合并 | `optical-character-recognition` | `ocr` | 9 | 9/9 完全共现，零损失 |
+| 冗余合并 | `utility` | `tool` | 129 | `utility` 从不单独出现，129 次全部伴随 `tool` |
+| 术语统一 | `text-to-voice` | `text-to-speech` | 5 | 对齐社区通用 TTS 命名 |
+| 术语统一 | `voice-to-text` | `speech-to-text` | 5 | 对齐社区通用 ASR 命名 |
+| 术语统一 | `picture-to-voice` | `image-to-speech` | 1 | `image` / `speech` 与全组一致 |
+| 改名 + 迁移 | `translation`（07） | `machine-translation`（**03**） | 1 | 文本→文本不属跨模态转换 |
+
+未选择「`tool` / `utility` 一并下线」：实测会让 33 个仓库变成零标签，且需引入清单外的 `automation`，与瘦身目标冲突；本轮先消除 100% 冗余，`tool` 本身的宽泛性留作后续项。
+
+**本轮结果**：移除 3 个 slug、改名 4 处、迁移 1 处，清单 110 → **107 个 slug**；线上打标 1774 → **1615 次**。
+
+**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处；第五轮改名 5 处、规范与文档修订 5 项，slug 总数不变；第六轮合并 3 个、改名 4 处、迁移 1 处，110 → 107 个 slug。三级分类结构自第二轮起未再变动。
 
 ## 待确认项
 
 
-- `tool`、`utility` 过于宽泛，检索价值低，建议替换为更具体的标签。
-- E. 保留但建议后续合并的同义词
+- `tool` 仍过于宽泛（原 `utility` 已于第六轮并入），检索价值低；若要彻底替换需为约 144 个仓库逐个补具体标签，暂列后续项。
+- E. 节剩余 `visualization` / `data-visualization` / `visualization-models` 与 `data-set` / `dataset-management` 两组，确认后再合并。
 
 ## 已知例外
 
-- **`agentic-design-patterns-cn`**：因 DMCA 版权限制（GitHub 于 2026-03-05 依据 Springer Nature 的投诉屏蔽该仓库，API 返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics。第五轮单复数改名后，该仓库仍保留旧标签 `agents`、`study-materials`，因此线上在用标签为 112 个，比清单多 2 个；清单 110 个 slug 本身全部在用、无清单独有项。上文 D 节的「双向零差异」为第五轮执行前的盘点快照，此后以本例外为准。此为平台限制导致，不影响清单本身的有效性。
+- **`agentic-design-patterns-cn`**：因 DMCA 版权限制（GitHub 于 2026-03-05 依据 Springer Nature 的投诉屏蔽该仓库，API 返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics。第五轮单复数改名后，该仓库仍保留旧标签 `agents`、`study-materials`，因此线上在用标签比清单多 2 个（第六轮后为 109 个 / 清单 107 个）；清单 107 个 slug 本身全部在用、无清单独有项。上文 D 节的「双向零差异」为第五轮执行前的盘点快照，此后以本例外为准。此为平台限制导致，不影响清单本身的有效性。
