@@ -28,7 +28,9 @@
 
 ```
 ai-framework
+benchmark
 evaluation
+fine-tuning
 llm
 model
 model-management
@@ -55,6 +57,7 @@ medical-dataset
 
 ```
 context-aware
+embedding
 information-integration
 knowledge-graph
 machine-translation
@@ -72,6 +75,7 @@ web-search
 ```
 agent
 ai-operating-system
+browser-automation
 build-agent
 chatbot
 chatbot-framework
@@ -115,7 +119,9 @@ windows-mcp
 ```
 3d-reconstruction
 computer-vision
+diffusion-model
 digital-human
+image-generation
 image-processing
 microscope
 object-detection
@@ -134,6 +140,7 @@ speech-to-text
 text-to-speech
 video-to-text
 video-to-voice
+voice-cloning
 voice-to-voice
 ```
 
@@ -153,6 +160,7 @@ gis
 object-storage
 spatiotemporal-data-analysis
 spatiotemporal-forecasting
+vector-database
 visualization
 visualization-models
 ```
@@ -163,6 +171,7 @@ visualization-models
 
 ```
 application-development
+code-generation
 github-app-store
 lims
 network
@@ -179,6 +188,7 @@ web-development
 
 ```
 finance
+prediction-market
 quantitative-trading
 trading-agent
 ```
@@ -197,7 +207,9 @@ medical-research-agent
 ### 10.3 生物 Biology
 
 ```
+bioinformatics
 biology
+protein-structure-prediction
 ```
 
 ### 10.4 科研 Research
@@ -233,8 +245,19 @@ working
 学习资料与语言学习，从原「生物与科研」独立。
 
 ```
+awesome-list
 language-learning
 study-material
+```
+
+### 10.8 情报与舆情 Intelligence & OSINT
+
+开源情报、新闻聚合与舆情情感分析；用于承接此前误套到 10.1 金融组的资讯/监控类项目。
+
+```
+news-monitoring
+osint
+sentiment-analysis
 ```
 
 ---
@@ -246,7 +269,7 @@ study-material
 3. **每个 slug 只出现一次**；跨领域标签按其最核心语义归组，领域专属 Agent 归 10。
 4. **命名统一**：全小写 kebab-case，只含 `a-z` `0-9` `-`，不含空格、不含尾随空格；长度**建议 ≤ 35 字符**（GitHub Topics **官方上限 50 字符**），**每个仓库最多 20 个 topics**。单一概念一律用单数（`agent`、`build-agent`、`train-agent`、`study-material`），复数仅用于表示集合类的标签（如 `research-models`、`visualization-models`）。
 5. **语义边界**：`data-set` / `*-dataset` / `dataset-management` 表示数据集，归 02；`database` / `*-mcp` 表示数据管理软件，归 08 / 05；`research-*` 等科研 Agent 归 10.4，不放 04。
-6. **新增流程**：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记（含基线 commit 与前后位置）。
+6. **清单定位与新增流程**：清单是**标准词表**，不是线上标签的镜像。新增 slug 以「是否有通用检索价值」为准，**允许暂时零使用**，不必先有仓库在用。流程：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记（含基线 commit 与前后位置）。
 7. **格式**：组内用纯文本代码块，一行一个 slug，方便直接复制去 GitHub 打标签；不再使用 `<br>` 硬换行。
 
 ## 变更映射表
@@ -263,7 +286,8 @@ study-material
 | 第三轮 | 2026-11-12 账号标签核对 | 补齐 6 个账号在用但清单外标签，108 → 114 个 slug |
 | 第四轮 | 2026-11-12 项目名/笔误标签清理 | 移除 4 个项目名与连写笔误标签，114 → 110 个 slug；同步调整 4 个仓库的线上 Topics |
 | 第五轮 | 2026-11-13 规范与命名修订 | 修正官方限制表述、断链锚点与统计口径；5 处 slug 改名（单复数统一 + 连写修正），slug 总数仍为 110 |
-| 第六轮（本版） | 2026-11-13 清单瘦身（P1） | 合并 3 个冗余/同义 slug、4 处改名、`translation` 移组，110 → 107 个 slug |
+| 第六轮 | 2026-11-13 清单瘦身（P1） | 合并 3 个冗余/同义 slug、4 处改名、`translation` 移组，110 → 107 个 slug |
+| 第七轮（本版） | 2026-11-13 清单增补（P2） | 按账号收藏方向补 16 个通用主题、新增 10.8 子组，107 → 123 个 slug；线上 Topics 不变 |
 
 完整差异：[compare 0464495...main](https://github.com/zhangchenhaobest/github-topics/compare/046449535bede44cb34aacbb5e4598fea8afd84e...main)
 
@@ -400,14 +424,44 @@ study-material
 
 **本轮结果**：移除 3 个 slug、改名 4 处、迁移 1 处，清单 110 → **107 个 slug**；线上打标 1774 → **1615 次**。
 
-**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处；第五轮改名 5 处、规范与文档修订 5 项，slug 总数不变；第六轮合并 3 个、改名 4 处、迁移 1 处，110 → 107 个 slug。三级分类结构自第二轮起未再变动。
+### I. 第六轮 → 第七轮：清单增补（P2）
+
+本轮按账号 609 个公开仓库的实际收藏方向（description + README 关键词盘点）补入通用主题，**允许暂时零使用**：清单自此是标准词表，不再是线上标签的镜像。**本轮不改动任何线上 Topics**。
+
+| 新增 slug | 归入分组 | 内容命中仓库数 | 依据 / 用途 |
+| --- | --- | ---: | --- |
+| `benchmark` | 01 | 41 | 基准/榜单类项目，与 `evaluation`（评测方法）区分 |
+| `fine-tuning` | 01 | 42 | 微调 / LoRA，补齐 `sft` 之外的通用训练方法 |
+| `embedding` | 03 | 19 | 向量化与语义检索底座 |
+| `browser-automation` | 04 | 20 | 浏览器 / 计算机操作类 Agent |
+| `diffusion-model` | 06 | 6 | 扩散模型 |
+| `image-generation` | 06 | 11 | 文生图 / 图像生成 |
+| `voice-cloning` | 07 | 3 | 声音克隆，与 TTS / ASR 区分 |
+| `vector-database` | 08 | 12 | 向量数据库属数据管理软件，按规范第 5 条归 08 而非 03 |
+| `code-generation` | 09 | 54 | AI 编码 / 代码生成 |
+| `prediction-market` | 10.1 | 3 | 预测市场，此前被笼统归入 `quantitative-trading` |
+| `bioinformatics` | 10.3 | 11 | 生物信息学，替代 AlphaFold 系列误打的 `medical-*` |
+| `protein-structure-prediction` | 10.3 | 3 | 蛋白质结构预测 |
+| `awesome-list` | 10.7 | 37 | 资源列表类仓库，此前多被硬套 `study-material` |
+| `news-monitoring` | **10.8（新增）** | 9 | 新闻 / 热点聚合监控 |
+| `osint` | **10.8（新增）** | 10 | 开源情报 |
+| `sentiment-analysis` | **10.8（新增）** | 8 | 舆情情感分析 |
+
+新增子组 **10.8 情报与舆情**，用于承接此前误套到 10.1 金融组的一批资讯 / 情报 / 监控类项目。
+
+**未采纳的高频泛词**（命中高，但会重演 `tool` / `utility` 的泛化问题或与已有 slug 同义）：`automation` 78（已有 `workflow`）、`docker` 72、`documentation` 47、`tutorial` 65（已有 `study-material`）、`self-hosted` 36、`tts` / `asr`（已有 `text-to-speech` / `speech-to-text`）、`genomics`（并入 `bioinformatics`）、`market-intelligence`（并入 10.8）。
+
+**本轮结果**：清单 107 → **123 个 slug**（新增 16 个），子组 7 → 8；线上 Topics 未改动，仍为 609 个公开仓库 / 1615 次打标 / 109 个在用标签（清单中在用的 107 个 slug + 2 个 DMCA 残留）。新增 16 个 slug 暂时零使用，留待后续打标时优先用于修正审计报告 3.2 / 3.3 节的错配。
+
+**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处；第五轮改名 5 处、规范与文档修订 5 项，slug 总数不变；第六轮合并 3 个、改名 4 处、迁移 1 处，110 → 107 个 slug；第七轮新增 16 个 slug、子组 7 → 8，107 → 123 个 slug（其中 16 个暂时零使用）。一级分类结构自第二轮起未再变动。
 
 ## 待确认项
 
 
 - `tool` 仍过于宽泛（原 `utility` 已于第六轮并入），检索价值低；若要彻底替换需为约 144 个仓库逐个补具体标签，暂列后续项。
 - E. 节剩余 `visualization` / `data-visualization` / `visualization-models` 与 `data-set` / `dataset-management` 两组，确认后再合并。
+- 第七轮新增的 16 个标签暂时零使用；后续打标时优先用于修正审计报告 3.2 节（生物项目误打 `medical-*`）与 3.3 节（资讯/情报项目误打 `finance`）。
 
 ## 已知例外
 
-- **`agentic-design-patterns-cn`**：因 DMCA 版权限制（GitHub 于 2026-03-05 依据 Springer Nature 的投诉屏蔽该仓库，API 返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics。第五轮单复数改名后，该仓库仍保留旧标签 `agents`、`study-materials`，因此线上在用标签比清单多 2 个（第六轮后为 109 个 / 清单 107 个）；清单 107 个 slug 本身全部在用、无清单独有项。上文 D 节的「双向零差异」为第五轮执行前的盘点快照，此后以本例外为准。此为平台限制导致，不影响清单本身的有效性。
+- **`agentic-design-patterns-cn`**：因 DMCA 版权限制（GitHub 于 2026-03-05 依据 Springer Nature 的投诉屏蔽该仓库，API 返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics。第五轮单复数改名后，该仓库仍保留旧标签 `agents`、`study-materials`，因此线上在用标签为 109 个 = 清单中在用的 107 个 + 该仓库残留的 2 个旧标签；第七轮增补后清单共 **123 个 slug**，其中 16 个按规范第 6 条暂时零使用。上文 D 节的「双向零差异」为第五轮执行前的盘点快照，此后以本例外与规范第 6 条为准。此为平台限制导致，不影响清单本身的有效性。
