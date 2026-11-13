@@ -1,6 +1,6 @@
 # GitHub Topics 分类清单
 
-一份用于给仓库打标签的 GitHub Topics 清单，按「技术底座 → 能力层 → 应用场景」组织。
+一份用于给仓库打标签的 GitHub Topics 清单，按「模型底座 → 能力层 → 数据与工程 → 行业场景」四段组织：01–05 为模型与能力层，06–07 为多模态能力，08–09 为数据与工程，10 为行业场景。
 
 > 维护规则见 [排序与维护规范](#排序与维护规范)，完整变更见 [变更映射表](#变更映射表)。
 
@@ -37,7 +37,6 @@ model-management
 reinforcement-learning
 research-models
 sft
-time-series-forecasting-pipeline
 time-series-model
 ```
 
@@ -53,7 +52,7 @@ medical-dataset
 
 ## 03 检索增强与知识工程 RAG & Knowledge
 
-检索、语义匹配、知识图谱与结构化查询。`machine-translation` 为文本→文本的语言能力，从 [07 语音与跨模态转换](#07-语音与跨模态转换-speech--conversion) 移入，不属跨模态转换。
+检索、语义匹配、知识图谱与结构化查询。`nlp` / `machine-translation` 等通用语言能力（文本→文本）同置本组，从 [07 语音与跨模态转换](#07-语音与跨模态转换-speech--conversion) 移入，不属跨模态转换；`embedding` 为检索侧向量化底座。
 
 ```
 context-aware
@@ -80,6 +79,7 @@ build-agent
 chatbot
 chatbot-framework
 claude-code
+computer-use
 development-agent
 memory-management
 memory-plugin
@@ -124,6 +124,7 @@ digital-human
 image-generation
 image-processing
 microscope
+multimodal
 object-detection
 ocr
 radar
@@ -146,7 +147,7 @@ voice-to-voice
 
 ## 08 数据、可视化与时空 Data, Visualization & Spatiotemporal
 
-数据治理、可视化、数据库软件与时空/图数据分析。`database` 在此表示**数据管理软件**；数据集见 [02](#02-数据集-datasets)。
+数据治理、可视化、数据库软件与时空/图数据分析。`database` 在此表示**数据管理软件**；数据集见 [02](#02-数据集-datasets)。**`data-governance` 仅限元数据、数据质量、血缘、目录与合规**，不得用于数据抽取、爬虫或文档解析（分别用 `data-extraction`、`spider`、`document-parsing`）；`time-series-forecasting` 由 01 组迁入并改名。
 
 ```
 data-extraction
@@ -155,14 +156,15 @@ data-science
 data-scientist
 data-visualization
 database
+document-parsing
 gcn
 gis
 object-storage
 spatiotemporal-data-analysis
 spatiotemporal-forecasting
+time-series-forecasting
 vector-database
 visualization
-visualization-models
 ```
 
 ## 09 开发与系统 Development & Systems
@@ -209,6 +211,7 @@ medical-research-agent
 ```
 bioinformatics
 biology
+genomics
 protein-structure-prediction
 ```
 
@@ -217,6 +220,7 @@ protein-structure-prediction
 科研写作与科研智能体，含通用 Agent 中拆出的 `research-*` 标签。
 
 ```
+deep-research
 paper-writing
 paper-writing-agent
 research-agent
@@ -264,14 +268,14 @@ sentiment-analysis
 
 ## 排序与维护规范
 
-1. **一级分类固定编号 01–10**，按认知链路排列：模型底座 → 数据集 → 检索能力 → Agent 能力 → 工具链 → 多模态 → 数据 → 工程 → 行业应用。不按字母序，也不按添加时间。
+1. **一级分类固定编号 01–10**，按认知链路排列：模型底座(01) → 数据集(02) → 检索能力(03) → Agent 能力(04) → 工具链(05) → 视觉与多模态生成(06) → 语音与跨模态转换(07) → 数据可视化与时空(08) → 开发与系统(09) → 行业应用(10)。不按字母序，也不按添加时间。
 2. **组内一律按字母序（A→Z）**，数字开头的 slug（如 `3d-reconstruction`）排在组首。便于查找、code review 和脚本 diff。
 3. **每个 slug 只出现一次**；跨领域标签按其最核心语义归组，领域专属 Agent 归 10。
 4. **命名统一**：全小写 kebab-case，只含 `a-z` `0-9` `-`，不含空格、不含尾随空格；长度**建议 ≤ 35 字符**（GitHub Topics **官方上限 50 字符**），**每个仓库最多 20 个 topics**。单一概念一律用单数（`agent`、`build-agent`、`train-agent`、`study-material`），复数仅用于表示集合类的标签（如 `research-models`、`visualization-models`）。
-5. **语义边界**：`data-set` / `*-dataset` / `dataset-management` 表示数据集，归 02；`database` / `*-mcp` 表示数据管理软件，归 08 / 05；`research-*` 等科研 Agent 归 10.4，不放 04。
+5. **语义边界**：`data-set` / `*-dataset` / `dataset-management` 表示数据集，归 02；`database` / `*-mcp` 表示数据管理软件，归 08 / 05；`research-*` 等科研 Agent 归 10.4，不放 04。`diffusion-model` 等模型架构归 01、生成任务归 06；`data-science`（学科）/ `data-scientist`（角色）/ `database`（软件）/ `data-visualization`（任务）为不同实体类型，08 组内按此区分；`computer-use` 表示 GUI/OS 级计算机操作 Agent，与 `terminal-agent`（命令行）、`browser-automation`（浏览器）并列但不等同。
 6. **清单定位与新增流程**：清单是**标准词表**，不是线上标签的镜像。新增 slug 以「是否有通用检索价值」为准，**允许暂时零使用**，不必先有仓库在用。流程：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记（含基线 commit 与前后位置）。
 7. **格式**：组内用纯文本代码块，一行一个 slug，方便直接复制去 GitHub 打标签；不再使用 `<br>` 硬换行。
-8. **打标执行**：每个仓库尽量 **3–6 个标签**，精简兼顾覆盖；**禁止同义标签并列**（如 `rag` 与全称、`text-to-speech` 与 `tts`）；新增标签优先用于修正内容错配，不要为凑数硬套 `tool` 等泛标签；仓库应补全 `description` 与 README 的中文一句话简介。
+8. **打标执行**：每个仓库尽量 **3–6 个标签**，精简兼顾覆盖；**禁止同义标签并列**（如 `rag` 与全称、`text-to-speech` 与 `tts`）；新增标签优先用于修正内容错配，不要为凑数硬套 `tool` 等泛标签；仓库应补全 `description` 与 README 的中文一句话简介。**禁止把固定标签组合成套套用**（如 `development-agent`+`research-agent`+`research-development-agent`、`data-extraction`+`data-governance`、`finance`+`quantitative-trading`+`trading-agent`）；每个标签都应能在 description 或 README 首段找到依据。
 
 ## 变更映射表
 
@@ -289,7 +293,8 @@ sentiment-analysis
 | 第五轮 | 2026-11-13 规范与命名修订 | 修正官方限制表述、断链锚点与统计口径；5 处 slug 改名（单复数统一 + 连写修正），slug 总数仍为 110 |
 | 第六轮 | 2026-11-13 清单瘦身（P1） | 合并 3 个冗余/同义 slug、4 处改名、`translation` 移组，110 → 107 个 slug |
 | 第七轮 | 2026-11-13 清单增补（P2） | 按账号收藏方向补 16 个通用主题、新增 10.8 子组，107 → 123 个 slug；线上 Topics 不变 |
-| 第八轮（本版） | 2026-11-13 打标执行（P3） | 新增打标执行规范第 8 条；58 个仓库标签精简、19 个 description、13 个 README 简介补齐；清单仍 123 个 slug |
+| 第八轮 | 2026-11-13 打标执行（P3） | 新增打标执行规范第 8 条；58 个仓库标签精简、19 个 description、13 个 README 简介补齐；清单仍 123 个 slug |
+| 第九轮（本版） | 2026-11-13 词表修订与线上打标 | 新增 5 个 slug、改名迁移 1 个、合并下线 1 个，123 → 127 个；P1 追加 102 处精准标签、P0 下线 122 处错配并补 65 处精准标签 |
 
 完整差异：[compare 0464495...main](https://github.com/zhangchenhaobest/github-topics/compare/046449535bede44cb34aacbb5e4598fea8afd84e...main)
 
@@ -363,7 +368,7 @@ sentiment-analysis
 
 数据口径（第三轮历史快照，2026-11-12 18:00）：618 个仓库 / 614 个带标签 / 1786 次打标。纳入后清单 114 个 slug 与账号 114 个在用标签**双向零差异**。
 
-**当前实测口径**（2026-11-13，公开仓库、未登录态）：**609 个仓库 / 605 个带标签 / 1774 次打标 / 110 个在用标签**，清单 110 个 slug 与之双向零差异。历史快照与当前实测的差额来自统计时点与仓库可见范围，私有仓库不在当前口径内。
+**第五轮盘点快照**（2026-11-13 早间，公开仓库、未登录态）：**609 个仓库 / 605 个带标签 / 1774 次打标 / 110 个在用标签**，清单 110 个 slug 与之双向零差异。历史快照与当前实测的差额来自统计时点与仓库可见范围，私有仓库不在口径内；**当前口径以 K 节为准**。
 
 ### E. 保留但建议后续合并的同义词
 
@@ -373,7 +378,7 @@ sentiment-analysis
 | --- | --- | --- |
 | `rag` | `retrieval-augmented-generation` | **第六轮已合并**：保留 `rag`，全称下线 |
 | `ocr` | `optical-character-recognition` | **第六轮已合并**：保留 `ocr`，全称下线 |
-| `visualization` | `data-visualization`、`visualization-models` | 三者语义有差别，确认后再合并 |
+| `visualization` | `data-visualization`、`visualization-models` | **第九轮已合并** `visualization-models` → `visualization`；`visualization` 与 `data-visualization` 语义有差别，继续保留 |
 | `data-set` | `dataset-management` | 同属 02 数据集，一个指本体一个指管理，暂保留 |
 
 ### F. 第三轮 → 第四轮：清理项目名与笔误标签
@@ -451,7 +456,7 @@ sentiment-analysis
 
 新增子组 **10.8 情报与舆情**，用于承接此前误套到 10.1 金融组的一批资讯 / 情报 / 监控类项目。
 
-**未采纳的高频泛词**（命中高，但会重演 `tool` / `utility` 的泛化问题或与已有 slug 同义）：`automation` 78（已有 `workflow`）、`docker` 72、`documentation` 47、`tutorial` 65（已有 `study-material`）、`self-hosted` 36、`tts` / `asr`（已有 `text-to-speech` / `speech-to-text`）、`genomics`（并入 `bioinformatics`）、`market-intelligence`（并入 10.8）。
+**未采纳的高频泛词**（命中高，但会重演 `tool` / `utility` 的泛化问题或与已有 slug 同义）：`automation` 78（已有 `workflow`）、`docker` 72、`documentation` 47、`tutorial` 65（已有 `study-material`）、`self-hosted` 36、`tts` / `asr`（已有 `text-to-speech` / `speech-to-text`）、`market-intelligence`（并入 10.8）；`genomics` 已于第九轮采纳为独立 slug，见 K 节。
 
 **本轮结果**：清单 107 → **123 个 slug**（新增 16 个），子组 7 → 8；线上 Topics 未改动，仍为 609 个公开仓库 / 1615 次打标 / 109 个在用标签（清单中在用的 107 个 slug + 2 个 DMCA 残留）。新增 16 个 slug 暂时零使用，留待后续打标时优先用于修正审计报告 3.2 / 3.3 节的错配。
 
@@ -463,25 +468,64 @@ sentiment-analysis
 | --- | ---: | ---: | --- |
 | Topics 调整 | 59 | **58** | 含 4 个零标签补齐、3.2 / 3.3 / 3.4 错配修正、22 个 ≥7 标签仓库精简；`n8n-workflows` 因 DMCA 451 失败 |
 | `description` 补齐 | 19 | **19** | 全部为中文一句话简介；执行后无 description 的仓库为 0 |
-| README 简介补齐 | 21 | **13** | 6 个复核发现已有完整 README（7–83 KB），未覆盖；2 个 DMCA 仓库无法写入 |
+| README 简介补齐 | 21 | **14** | 6 个复核发现已有完整 README（7–83 KB），未覆盖；2 个 DMCA 仓库无法写入；第九轮实测含补齐标记为 14 个 |
 
-**标签分布变化**：≥7 个标签的仓库 **22 → 0**；3–6 个标签的仓库 228 → **269**；打标 1615 → **1565 次**；严格同义并列（`rag`+全称、`ocr`+全称、`tool`+`utility`、`text-to-speech`+`tts`）均为 **0**。清单 16 个零使用标签中 **15 个已落地**（`awesome-list`、`osint`、`news-monitoring`、`sentiment-analysis`、`bioinformatics`、`vector-database` 等），仅 `voice-cloning` 仍零使用。
+**标签分布变化**：≥7 个标签的仓库 **22 → 0**；3–6 个标签的仓库 228 → **269**；打标 1615 → **1565 次**；严格同义并列（`rag`+全称、`ocr`+全称、`tool`+`utility`、`text-to-speech`+`tts`）均为 **0**。清单 16 个零使用标签中 **15 个已落地**（`awesome-list`、`osint`、`news-monitoring`、`sentiment-analysis`、`bioinformatics`、`vector-database` 等），仅 `voice-cloning` 仍零使用。**注**：「已落地」仅表示非零使用；第九轮实测 `benchmark`、`fine-tuning`、`code-generation`、`embedding`、`vector-database` 当时各仅 1 次，覆盖率不足，已在 K 节 P1 阶段补齐。
 
 **未强行补足**：339 个仓库仍只有 1–2 个标签。规范用「尽量 3–6 个」而非硬性下限，避免为凑数引入不准确标签，留待按项目内容逐步补充。
 
-**盘点口径修正**：最初记录的「21 个无 README」中有 6 个是 raw 域名抓取时的网络失败导致的误判（仓库实际有完整 README），本轮已复核并**保留原文件、未覆盖**；真正缺失的 13 个已补中文简介。
+**盘点口径修正**：最初记录的「21 个无 README」中有 6 个是 raw 域名抓取时的网络失败导致的误判（仓库实际有完整 README），本轮已复核并**保留原文件、未覆盖**；真正缺失的 13 个已补中文简介。第九轮全量复核（607/609 抓取成功，2 个失败均为 DMCA 屏蔽仓库）验证了该修正。
 
 **执行后线上**（609 个公开仓库）：唯一标签 **124 个** = 清单中在用的 122 个 + 2 个 DMCA 残留旧名；清单独有 **1 个**（`voice-cloning`，符合规范第 6 条）；零标签仓库 1 个（`n8n-workflows`，平台封禁）。
 
-**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处；第五轮改名 5 处、规范与文档修订 5 项，slug 总数不变；第六轮合并 3 个、改名 4 处、迁移 1 处，110 → 107 个 slug；第七轮新增 16 个 slug、子组 7 → 8，107 → 123 个 slug（其中 16 个暂时零使用）；第八轮新增打标执行规范、58 个仓库标签精简、19 个 description 与 13 个 README 简介补齐，slug 总数不变。一级分类结构自第二轮起未再变动。
+**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处；第五轮改名 5 处、规范与文档修订 5 项，slug 总数不变；第六轮合并 3 个、改名 4 处、迁移 1 处，110 → 107 个 slug；第七轮新增 16 个 slug、子组 7 → 8，107 → 123 个 slug（其中 16 个暂时零使用）；第八轮新增打标执行规范、58 个仓库标签精简、19 个 description 与 13 个 README 简介补齐，slug 总数不变；第九轮新增 5 个 slug、改名迁移 1 个、合并下线 1 个，123 → **127 个**，一级分类结构自第二轮起未再变动。
+
+### K. 第八轮 → 第九轮：按内容落地与词表修订
+
+本轮按「**P1 把已有精准词用起来 → P0 清掉错配标签并用精准词替换 → P2 改词表并登记**」的顺序执行，全部线上变更经 `description` + README 首段核验，逐仓库明细见审计目录 `p1-plan.csv` / `p0-plan.csv`。
+
+| 阶段 | 动作 | 覆盖范围 |
+| --- | --- | ---: |
+| P1 | 追加清单内已有但几乎未落地的精准标签（只认 description 级强证据，逐条人工复核） | **93 个仓库 / 102 次追加** |
+| P0 | 下线语义错配标签，用清单内精准词替换，并给删到只剩 1 个标签的仓库补词 | **94 个仓库 / 删除 122 次、追加 65 次** |
+| P2 | 词表结构调整、规范修订、文档自洽性修订与变更登记 | 123 → **127 个 slug** |
+
+**新增 5 个通用 slug**（按仓库实际内容命中补入，字母序插入）：
+
+| slug | 归组 | 用途 / 承接的错配 |
+| --- | --- | --- |
+| `computer-use` | 04 | GUI/OS 级计算机操作 Agent，承接 `cua` / `Agent-S` / `OS-Copilot` 等被误打成 `terminal-agent` 的项目 |
+| `multimodal` | 06 | 06 组名含「多模态」但此前无对应 slug |
+| `document-parsing` | 08 | PDF / 文档解析，替换被误打 `data-governance` 的 `MinerU`、`docling`、`olmocr` 等 |
+| `genomics` | 10.3 | 基因组学，第七轮曾并入 `bioinformatics`，实测该词仅 6 次使用而内容命中更多，独立成词 |
+| `deep-research` | 10.4 | 深度调研能力，与泛化的 `research-agent` 区分 |
+
+**改名迁移 1 处**：`time-series-forecasting-pipeline`（01）→ `time-series-forecasting`（**08**），统一 01/08 的时序主题，去掉与 `workflow` 撞车的 `pipeline`。
+**合并下线 1 处**：`visualization-models`（仅 3 次、含义模糊）→ `visualization`。
+
+**线上错配清理结果**（执行前 → P0 后）：
+
+| 标签 | 执行前 | P0 后 | 说明 |
+| --- | ---: | ---: | --- |
+| `data-governance` | 33 | **0** | 全部为抽取/爬虫/解析/问数项目误用，保留 slug 并收紧语义边界 |
+| `prompt-optimizer` | 19 | **2** | 仅保留 `prompt-optimizer`、`AI-Gist`，其余改 `awesome-list` / `prompt-engineering` |
+| `development-agent` | 71 | **41** | 下线 30 处无编码迹象的模板化打标 |
+| `research-development-agent` | 25 | **15** | 下线 10 处通用 Agent 框架 |
+| `paper-writing-agent` | 17 | **13** | 下线 4 处错配 |
+| `awesome-list` | 7 | **33** | 资源列表类仓库改用精准词 |
+| `voice-cloning` | 0 | **2** | 零使用清零 |
+
+**执行后线上口径**（P0 完成时，609 个公开仓库 / 未登录态可读）：**608 个带标签 / 1610 次打标 / 124 个唯一标签**；1–2 标签仓库 339 → **308**，3–6 标签仓库 269 → **300**；标签数 ≥7 与严格同义并列仍为 **0**。清单独有零使用 1 个（`data-governance`，按规范第 6 条保留）；线上独有 2 个仍为 DMCA 旧名残留，见「已知例外」。
+
+**新增 5 个 slug 的线上试打标**在本次登记之后执行，明细见审计目录 `p2-plan.csv`；该部分不计入上表口径，以线上实际为准。
 
 ## 待确认项
 
 
-- `tool` 仍过于宽泛（原 `utility` 已于第六轮并入），检索价值低；若要彻底替换需为约 144 个仓库逐个补具体标签，暂列后续项。
-- E. 节剩余 `visualization` / `data-visualization` / `visualization-models` 与 `data-set` / `dataset-management` 两组，确认后再合并。
-- `voice-cloning` 仍零使用；其余 15 个第七轮新增标签已在 P3 落地。
-- 339 个仓库仍只有 1–2 个标签，未按「3–6 个」硬性下限强行补齐，后续按项目内容逐步补充。
+- `tool` 仍过于宽泛（134 次，原 `utility` 已于第六轮并入），检索价值低；第九轮未批量替换，需逐个补具体标签，暂列后续项。
+- E. 节 `visualization` / `data-visualization` 与 `data-set` / `dataset-management` 两组语义有差别，确认后再决定是否合并；`visualization-models` 已于第九轮合并下线。
+- `data-governance` 线上已清零，slug 按规范第 6 条保留为零使用标准词，后续仅用于真正的数据治理项目。
+- **308 个仓库**仍只有 1–2 个标签，未按「3–6 个」硬性下限强行补齐，后续按项目内容逐步补充。
 - `n8n-workflows` 因 DMCA 屏蔽无法打标签或补 README，见文末「已知例外」。
 
 ## 已知例外
@@ -489,4 +533,4 @@ sentiment-analysis
 - **`agentic-design-patterns-cn`**：因 DMCA 版权限制（GitHub 于 2026-03-05 依据 Springer Nature 的投诉屏蔽该仓库，API 返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics。第五轮单复数改名后，该仓库仍保留旧标签 `agents`、`study-materials`。
 - **`n8n-workflows`**：因 DMCA 版权限制（GitHub 于 2025-08-26 屏蔽，API 同样返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics 或补 README，是账号内唯一零标签仓库。
 
-因此线上在用标签为 **124 个** = 清单中在用的 122 个 slug + 上述 2 个残留旧名；清单共 **123 个 slug**，仅 `voice-cloning` 按规范第 6 条暂时零使用。上文 D 节的「双向零差异」为第五轮执行前的盘点快照，此后以本例外与规范第 6 条为准。以上均为平台限制导致，不影响清单本身的有效性。
+因此第九轮 P0 完成时线上在用标签为 **124 个** = 清单中在用的 122 个 slug + 上述 2 个残留旧名；当时清单共 **123 个 slug**，仅 `voice-cloning` 按规范第 6 条暂时零使用。第九轮改词表后清单为 **127 个 slug**，其中 `data-governance` 与新增 5 个 slug 按第 6 条允许暂时零使用；新增 slug 的试打标见 K 节。上文 D 节的「双向零差异」为第五轮执行前的盘点快照，此后以本例外与规范第 6 条为准。以上均为平台限制导致，不影响清单本身的有效性。
