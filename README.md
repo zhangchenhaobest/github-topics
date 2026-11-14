@@ -10,6 +10,8 @@
 - [02 数据集](#02-数据集-datasets)
 - [03 检索增强与知识工程](#03-检索增强与知识工程-rag--knowledge)
 - [04 Agent 与编排](#04-agent-与编排-agents--orchestration)
+  - [04a 界面与平台](#04a-界面与平台-interface--platform)
+  - [04b 任务用途](#04b-任务用途-task-purpose)
 - [05 MCP 与工具链](#05-mcp-与工具链-mcp--tooling)
 - [06 视觉与多模态生成](#06-视觉与多模态生成-vision--multimodal)
 - [07 语音与跨模态转换](#07-语音与跨模态转换-speech--conversion)
@@ -72,15 +74,15 @@ web-search
 
 通用智能体框架、编排、记忆与提示工程。
 
+按作者确认的边界，界面与平台类标签归入 04a，任务用途类归入 04b，其余通用能力词保留在基准块。
+
+**04 基准块 · 通用能力**
+
 ```
 agent
-ai-operating-system
-browser-automation
-build-agent
 chatbot
 chatbot-framework
 claude-code
-computer-use
 development-agent
 memory-management
 memory-plugin
@@ -88,11 +90,30 @@ multi-agent
 prompt-engineering
 prompt-optimizer
 skill
+workflow
+```
+
+### 04a 界面与平台 Interface & Platform
+
+以「Agent 的操作面或平台」划分，同一仓库最多取 1–2 个；逐词边界见[规范第 5 条](#排序与维护规范)。
+
+```
+ai-operating-system
+browser-automation
+computer-use
+mobile-agent
 terminal-agent
-train-agent
 web-agent
 windows-agent
-workflow
+```
+
+### 04b 任务用途 Task Purpose
+
+以「拿 Agent 做什么」划分，与操作面正交，可与 04a 任一词组合。
+
+```
+build-agent
+train-agent
 ```
 
 ## 05 MCP 与工具链 MCP & Tooling
@@ -281,6 +302,7 @@ docker
 excel
 fastapi
 framework
+linux
 machine-learning
 matrix-factorization
 metadata
@@ -318,7 +340,19 @@ working
 2. **组内一律按字母序（A→Z）**，数字开头的 slug（如 `3d-reconstruction`）排在组首。便于查找、code review 和脚本 diff。
 3. **每个 slug 只出现一次**；跨领域标签按其最核心语义归组，领域专属 Agent 归 10；11 组只登记尚未收录的新词，已达门槛的既有词自动兼任锚点词，不重复登记。
 4. **命名统一**：全小写 kebab-case，只含 `a-z` `0-9` `-`，不含空格、不含尾随空格；长度**建议 ≤ 35 字符**（GitHub Topics **官方上限 50 字符**），**每个仓库最多 20 个 topics**。单一概念一律用单数（`agent`、`build-agent`、`train-agent`、`tutorial`），复数仅用于表示集合类的标签（如 `research-models`、`visualization-models`）。
-5. **语义边界**：`dataset` / `*-dataset` / `dataset-management` 表示数据集，归 02；`database` / `*-mcp` 表示数据管理软件，归 08 / 05；`research-*` 等科研 Agent 归 10.4，不放 04。`diffusion-model` 等模型架构归 01、生成任务归 06；`data-science`（学科）/ `data-scientist`（角色）/ `database`（软件）/ `data-visualization`（任务）为不同实体类型，08 组内按此区分；`computer-use` 表示 GUI/OS 级计算机操作 Agent，与 `terminal-agent`（命令行）、`browser-automation`（浏览器）并列但不等同；`working` 属于 12 仓库状态，是生命周期标记而非功能词，不与 10.6 的职场效率类标签混用。
+5. **语义边界**：`dataset` / `*-dataset` / `dataset-management` 表示数据集，归 02；`database` / `*-mcp` 表示数据管理软件，归 08 / 05；`research-*` 等科研 Agent 归 10.4，不放 04。`diffusion-model` 等模型架构归 01、生成任务归 06；`data-science`（学科）/ `data-scientist`（角色）/ `database`（软件）/ `data-visualization`（任务）为不同实体类型，08 组内按此区分；`computer-use` / `terminal-agent` / `browser-automation` 的边界见下方 04a 逐词定义；`working` 属于 12 仓库状态，是生命周期标记而非功能词，不与 10.6 的职场效率类标签混用。
+**04a / 04b 逐词边界定义**（判断以仓库 description 与 README 首段描述的操作面为准）：
+
+- `ai-operating-system`：把操作系统本身做成 Agent 的运行底座（调度、记忆、工具与 OS 级接口），不是「在 OS 上跑一个 Agent」。
+- `computer-use`：以屏幕截图为输入、鼠标键盘为输出，跨应用操作桌面 GUI 的通用能力。
+- `windows-agent`：`computer-use` 在 Windows 上的平台特化，仅当 README 明确限定 Windows 时使用，可与 `computer-use` 并存。
+- `mobile-agent`：以 Android / iOS 设备为操作面、经 ADB 或视觉 UI 操作手机 App 的 Agent；手机类项目不再打 `computer-use` 或 `terminal-agent`。
+- `browser-automation`：浏览器自动化工具或框架（Playwright / CDP / Selenium 类），流程由人或代码定义。
+- `web-agent`：自主规划多步任务的 Web 智能体或 agentic browser，由 LLM 决定下一步；与 `browser-automation` 近义，同一仓库不并列。
+- `terminal-agent`：以命令行或终端为操作面的编码 / 运维 Agent（Claude Code、Aider、Open Interpreter 类）；GUI、手机、研究类项目与纯 RPC 框架不得使用，且不与 `computer-use` 并列。
+- `build-agent`（04b）：构建 Agent 或 Agent 应用的框架与教程，描述「造什么」。
+- `train-agent`（04b）：训练或优化 Agent 能力的框架与方法，描述「怎么变强」；两者与操作面正交，可与 04a 任一词组合。
+
 6. **清单定位与新增流程**：清单是**标准词表**，不是线上标签的镜像。新增 slug 以「是否有通用检索价值」为准，**允许暂时零使用**，不必先有仓库在用。流程：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记（含基线 commit 与前后位置）。候选词若在 README 全文命中超过 30% 的仓库，视为文档与部署说明噪声（如 `documentation`），不纳入；技术栈、部署形态与属性词同理。**例外**：11 组社区通用锚点词专为对外检索设立，允许收录技术栈词，但每个仓库最多使用 2 个。
 7. **格式**：组内用纯文本代码块，一行一个 slug，方便直接复制去 GitHub 打标签；不再使用 `<br>` 硬换行。
 8. **打标执行**：每个仓库尽量 **3–6 个标签**，其中**至少 1 个来自 11 组社区通用锚点词**（带 `working` 状态位时语义标签取 3–5 个）；精简兼顾覆盖；**禁止同义标签并列**（如 `rag` 与全称、`text-to-speech` 与 `tts`）；新增标签优先用于修正内容错配，不要为凑数硬套泛标签；仓库应补全 `description` 与 README 的中文一句话简介。**禁止把固定标签组合成套套用**（如 `development-agent`+`research-agent`+`research-development-agent`、`data-extraction`+`data-governance`、`finance`+`quantitative-trading`+`trading-agent`）；每个标签都应能在 description 或 README 首段找到依据。**`working` 为作者保留的状态标签，任何批量整理均不得删除。**
@@ -364,6 +398,9 @@ working
 | 第七轮 | 2026-11-14 | `4985632` | 6 个词明确不用推荐词替换并保留：`research-development-agent`、`development-agent`、`model-management`、`application-development`、`research-agent`、`visualization`；`visualization` 与 `data-visualization` 并存 | 低热度词映射表 |
 | 第七轮 | 2026-11-14 | `4985632` | 01 / 02 / 05 / 08 / 10.7 组移除 5 个已替换旧 slug，新写法由 11 组锚点词或 08 组既有词承接，避免重复登记；词表 155 → 150 slug | 各组代码块 |
 | 第七轮 | 2026-11-14 | `4985632` | 规范第 4 / 5 条举例同步（`study-material`→`tutorial`、`data-set`→`dataset`）；低热度词映射表改写为处置结论表 | 排序与维护规范、映射表 |
+| 第八轮 | 2026-11-14 | `2f5a085` | 04 组拆为基准块 + 04a 界面与平台（7 词）+ 04b 任务用途（2 词）；新增 `mobile-agent`(04a，全站 91) 与 `linux`(11 组，全站 104,339)；词表 150 → 152 slug | 04、11 |
+| 第八轮 | 2026-11-14 | `2f5a085` | 规范第 5 条新增 04a / 04b 逐词边界定义 9 条，明确 `terminal-agent` 只用于命令行 Agent 且不与 `computer-use` 并列、`web-agent` 不与 `browser-automation` 并列 | 排序与维护规范 |
+| 第八轮 | 2026-11-14 | `2f5a085` | 按新边界重打 31 个仓库的 topics：从 17 个 GUI / 手机 / 研究 / RPC 项目移除 `terminal-agent`，6 个手机项目改用 `mobile-agent`，清理 `ai-operating-system`、`browser-automation`、`windows-agent` 的明确错配 | 线上仓库 |
 
 ---
 
