@@ -18,7 +18,6 @@
 - [10 垂直领域与场景](#10-垂直领域与场景-domains--use-cases)
 - [排序与维护规范](#排序与维护规范)
 - [变更映射表](#变更映射表)
-- [待确认项](#待确认项)
 
 ---
 
@@ -106,7 +105,6 @@ memory-mcp
 n8n-mcp
 remote-control
 spider
-tool
 web-mcp
 windows-mcp
 ```
@@ -265,9 +263,9 @@ sentiment-analysis
 3. **每个 slug 只出现一次**；跨领域标签按其最核心语义归组，领域专属 Agent 归 10。
 4. **命名统一**：全小写 kebab-case，只含 `a-z` `0-9` `-`，不含空格、不含尾随空格；长度**建议 ≤ 35 字符**（GitHub Topics **官方上限 50 字符**），**每个仓库最多 20 个 topics**。单一概念一律用单数（`agent`、`build-agent`、`train-agent`、`study-material`），复数仅用于表示集合类的标签（如 `research-models`、`visualization-models`）。
 5. **语义边界**：`data-set` / `*-dataset` / `dataset-management` 表示数据集，归 02；`database` / `*-mcp` 表示数据管理软件，归 08 / 05；`research-*` 等科研 Agent 归 10.4，不放 04。`diffusion-model` 等模型架构归 01、生成任务归 06；`data-science`（学科）/ `data-scientist`（角色）/ `database`（软件）/ `data-visualization`（任务）为不同实体类型，08 组内按此区分；`computer-use` 表示 GUI/OS 级计算机操作 Agent，与 `terminal-agent`（命令行）、`browser-automation`（浏览器）并列但不等同。
-6. **清单定位与新增流程**：清单是**标准词表**，不是线上标签的镜像。新增 slug 以「是否有通用检索价值」为准，**允许暂时零使用**，不必先有仓库在用。流程：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记（含基线 commit 与前后位置）。
+6. **清单定位与新增流程**：清单是**标准词表**，不是线上标签的镜像。新增 slug 以「是否有通用检索价值」为准，**允许暂时零使用**，不必先有仓库在用。流程：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记（含基线 commit 与前后位置）。候选词若在 README 全文命中超过 30% 的仓库，视为文档与部署说明噪声（如 `docker`、`documentation`），不纳入；技术栈、部署形态与属性词同理。
 7. **格式**：组内用纯文本代码块，一行一个 slug，方便直接复制去 GitHub 打标签；不再使用 `<br>` 硬换行。
-8. **打标执行**：每个仓库尽量 **3–6 个标签**，精简兼顾覆盖；**禁止同义标签并列**（如 `rag` 与全称、`text-to-speech` 与 `tts`）；新增标签优先用于修正内容错配，不要为凑数硬套 `tool` 等泛标签；仓库应补全 `description` 与 README 的中文一句话简介。**禁止把固定标签组合成套套用**（如 `development-agent`+`research-agent`+`research-development-agent`、`data-extraction`+`data-governance`、`finance`+`quantitative-trading`+`trading-agent`）；每个标签都应能在 description 或 README 首段找到依据。
+8. **打标执行**：每个仓库尽量 **3–6 个标签**，精简兼顾覆盖；**禁止同义标签并列**（如 `rag` 与全称、`text-to-speech` 与 `tts`）；新增标签优先用于修正内容错配，不要为凑数硬套泛标签；仓库应补全 `description` 与 README 的中文一句话简介。**禁止把固定标签组合成套套用**（如 `development-agent`+`research-agent`+`research-development-agent`、`data-extraction`+`data-governance`、`finance`+`quantitative-trading`+`trading-agent`）；每个标签都应能在 description 或 README 首段找到依据。
 
 ## 变更映射表
 
@@ -286,7 +284,9 @@ sentiment-analysis
 | 第六轮 | 2026-11-13 清单瘦身（P1） | 合并 3 个冗余/同义 slug、4 处改名、`translation` 移组，110 → 107 个 slug |
 | 第七轮 | 2026-11-13 清单增补（P2） | 按账号收藏方向补 16 个通用主题、新增 10.8 子组，107 → 123 个 slug；线上 Topics 不变 |
 | 第八轮 | 2026-11-13 打标执行（P3） | 新增打标执行规范第 8 条；58 个仓库标签精简、19 个 description、13 个 README 简介补齐；清单仍 123 个 slug |
-| 第九轮（本版） | 2026-11-13 词表修订与线上打标 | 新增 5 个 slug、改名迁移 1 个、合并下线 1 个，123 → 127 个；P1 追加 102 处、P0 下线 122 处错配并补 65 处、P2 试打标 38 处与旧 slug 同步 8 处 |
+| 第九轮 | 2026-11-13 词表修订与线上打标 | 新增 5 个 slug、改名迁移 1 个、合并下线 1 个，123 → 127 个；P1 追加 102 处、P0 下线 122 处错配并补 65 处、P2 试打标 38 处与旧 slug 同步 8 处 |
+| 第十轮 | 2026-11-14 分组说明精简 | 精简 10 处分组说明；`machine-translation` 由 03 回迁 07；slug 总数不变 |
+| 第十一轮（本版） | 2026-11-14 泛标签 `tool` 下线 | 05 组移除 `tool`，127 → 126 个 slug；线上 134 个仓库下线 `tool` 并补具体标签；I 节改判据式表述、规范第 6/8 条修订、待确认项章节移除 |
 
 完整差异：[compare 0464495...main](https://github.com/zhangchenhaobest/github-topics/compare/046449535bede44cb34aacbb5e4598fea8afd84e...main)
 
@@ -448,7 +448,7 @@ sentiment-analysis
 
 新增子组 **10.8 情报与舆情**，用于承接此前误套到 10.1 金融组的一批资讯 / 情报 / 监控类项目。
 
-**未采纳的高频泛词**（命中高，但会重演 `tool` / `utility` 的泛化问题或与已有 slug 同义）：`automation` 78（已有 `workflow`）、`docker` 72、`documentation` 47、`tutorial` 65（已有 `study-material`）、`self-hosted` 36、`tts` / `asr`（已有 `text-to-speech` / `speech-to-text`）、`market-intelligence`（并入 10.8）；`genomics` 已于第九轮采纳为独立 slug，见 K 节。
+**未纳入词表的高频泛词**：命中高不等于有检索价值。同义/缩写用已有 slug 承接（`tutorial`→`study-material`、`tts` / `asr`→`text-to-speech` / `speech-to-text`、`market-intelligence`→10.8）；属性词（`automation`、`self-hosted`）用 `workflow` / `browser-automation` 或按主题打标；技术栈与文档噪声（`docker`、`documentation`）在 README 全文命中 35%–49% 的仓库，不纳入。`genomics` 已于第九轮作为例外纳入 10.3，见 K 节。
 
 **本轮结果**：清单 107 → **123 个 slug**（新增 16 个），子组 7 → 8；线上 Topics 未改动，仍为 609 个公开仓库 / 1615 次打标 / 109 个在用标签（清单中在用的 107 个 slug + 2 个 DMCA 残留）。新增 16 个 slug 暂时零使用，留待后续打标时优先用于修正审计报告 3.2 / 3.3 节的错配。
 
@@ -470,7 +470,7 @@ sentiment-analysis
 
 **执行后线上**（609 个公开仓库）：唯一标签 **124 个** = 清单中在用的 122 个 + 2 个 DMCA 残留旧名；清单独有 **1 个**（`voice-cloning`，符合规范第 6 条）；零标签仓库 1 个（`n8n-workflows`，平台封禁）。
 
-**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处；第五轮改名 5 处、规范与文档修订 5 项，slug 总数不变；第六轮合并 3 个、改名 4 处、迁移 1 处，110 → 107 个 slug；第七轮新增 16 个 slug、子组 7 → 8，107 → 123 个 slug（其中 16 个暂时零使用）；第八轮新增打标执行规范、58 个仓库标签精简、19 个 description 与 13 个 README 简介补齐，slug 总数不变；第九轮新增 5 个 slug、改名迁移 1 个、合并下线 1 个，123 → **127 个**，一级分类结构自第二轮起未再变动。
+**统计**：基线 115 行（114 个唯一值）→ 110 个规范 slug（前两轮规范化后 108，第三轮补齐 6 个，第四轮移除 4 个）；一级分类 9 → 10，子组 5 → 7；第二轮改名 1 处、迁移 11 处、确认保留 3 处；第三轮新增 6 处；第四轮移除 4 处；第五轮改名 5 处、规范与文档修订 5 项，slug 总数不变；第六轮合并 3 个、改名 4 处、迁移 1 处，110 → 107 个 slug；第七轮新增 16 个 slug、子组 7 → 8，107 → 123 个 slug（其中 16 个暂时零使用）；第八轮新增打标执行规范、58 个仓库标签精简、19 个 description 与 13 个 README 简介补齐，slug 总数不变；第九轮新增 5 个 slug、改名迁移 1 个、合并下线 1 个，123 → **127 个**；第十一轮下线 `tool`，127 → **126 个**，一级分类结构自第二轮起未再变动。
 
 ### K. 第八轮 → 第九轮：按内容落地与词表修订
 
@@ -513,9 +513,19 @@ sentiment-analysis
 
 **新增 5 个 slug 的线上试打标**已在登记后完成：38 个仓库 / 38 次追加（`computer-use` 12、`document-parsing` 7、`genomics` 5、`deep-research` 6、`multimodal` 8），明细见 `p2-plan.csv`；另同步 8 个仓库的旧 slug 改名与合并（`time-series-forecasting-pipeline` → `time-series-forecasting` 5 处、`visualization-models` → `visualization` 3 处），明细见 `p2b-plan.csv`。
 
-## 待确认项
+### L. 第十轮 → 第十一轮：泛标签 `tool` 下线
 
-- `tool` 仍过于宽泛（134 次，原 `utility` 已于第六轮并入），检索价值低；第九轮未批量替换，需逐个补具体标签，暂列后续项。
+第六轮把 `utility` 并入 `tool` 后，`tool` 成为账号内使用最多的标签，但检索价值低；H 节记录的阻塞是「直接下线会让 33 个仓库变成零标签」。本轮按内容逐仓库补具体标签后解决该阻塞。
+
+| 动作 | 范围 |
+| --- | ---: |
+| 线上 `tool` 下线 | **134 个仓库** |
+| 其中仅含 `tool` 的仓库补 2 个具体标签 | 26 个 |
+| 其余仓库补 0–1 个具体标签 | 108 个 |
+| 词表调整 | 05 组移除 `tool`，127 → **126 个 slug** |
+| 文档调整 | I 节改为判据式表述；规范第 6 条补「README 全文命中 >30% 视为噪声」；第 8 条去除 `tool` 举例；待确认项章节移除 |
+
+逐仓库明细见 `p3-plan.csv`。**执行后线上**（609 个公开仓库）：**608 个带标签 / 1613 次打标 / 127 个唯一标签**，1–2 标签仓库 **336** 个；`tool` 归零，仅 `data-governance` 保留为零使用标准词（规范第 6 条）。历史映射表 A–H 中关于 `tool` / `utility` 的记录按惯例保留原样。
 
 ## 已知例外
 
