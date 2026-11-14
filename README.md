@@ -365,11 +365,6 @@ working
 
 | 归档词 | 全站仓库数 | 替换 / 保留结论 | 目标词全站仓库数 | 本轮处置 |
 |---|---:|---|---:|---|
-| `time-series-model` | 2 | **用 `time-series` 替换** | 16,264 | 已全量替换 14 个仓库；01 组下线，由 11 组承接 |
-| `spatiotemporal-forecasting` | 40 | **用 `time-series-forecasting` 替换** | 3,366 | 已全量替换 5 个仓库；08 组下线，由组内既有词承接 |
-| `study-material` | 86 | **用 `tutorial` 替换** | 24,182 | 已全量替换 80 个仓库；10.7 组下线，由 11 组承接 |
-| `data-set` | 128 | **用 `dataset` 替换** | 21,338 | 已全量替换 21 个仓库；02 组下线，由 11 组承接 |
-| `spider` | 2,952 | **用 `web-scraping` 替换** | 25,461 | 已全量替换 32 个仓库；05 组下线，由 11 组承接 |
 | `research-development-agent` | 0 | **不用 `agent` 替换，保留** | — | 保留在 10.4 |
 | `development-agent` | 1 | **不用 `agent` 替换，保留** | — | 保留在 04 |
 | `model-management` | 195 | **不用 `mlops` 替换，保留** | — | 保留在 01 |
@@ -383,26 +378,7 @@ working
 
 长尾领域词虽然量小，但语义不可替代，已按第 6 条流程补入对应组：`circrna` / `drug-target-interaction` 归 10.3 生物、`food-safety` 归新增的 10.9、`fuzzy-matching` 归 03、`github-topics` 归 09；在具体仓库中与 11 组锚点词搭配使用。
 
----
 
-## 变更映射表
-
-| 轮次 | 日期 | 基线 commit | 变更 | 前后位置 |
-|---|---|---|---|---|
-| 第六轮 | 2026-11-14 | `c086353` | 新增 11 社区通用锚点词组（24 个新 slug + 10 个既有词兼任）与 12 仓库状态组；`working` 从 10.6 移出，正式定义为「作者本人正在开发中」，设为不可批量删除的状态位 | 10 之后新增 11 / 12；10.6 删除 `working` |
-| 第六轮 | 2026-11-14 | `c086353` | 补登 5 个长尾领域词，使原创仓库全部线上标签在词表内均有归宿；新增 10.9 农业与食品安全组 | 03、09、10.3、10.9 |
-| 第六轮 | 2026-11-14 | `c086353` | 规范 1 / 3 / 5 / 6 / 8 条修订：编号扩至 01–12、11 组不重复登记、11 组技术栈词例外、每仓至少 1 个锚点词、状态位配额与保护 | 排序与维护规范 |
-| 第六轮 | 2026-11-14 | `c086353` | 新增低热度词映射表（13 组实测数据）；采用软下线而非删除，保持 608 个 fork 存量标签有效 | 规范之后新增章节 |
-| 第六轮 | 2026-11-14 | `c086353` | 账号 10 个原创仓库按审计报告补全 description 与 topics、补齐 7 份 README.md、为 2 个第三方副本补来源声明；全部保留 `working` | 线上仓库 |
-| 第七轮 | 2026-11-14 | `4985632` | 按作者白名单全量替换 5 组 slug：`time-series-model`→`time-series`、`spatiotemporal-forecasting`→`time-series-forecasting`、`study-material`→`tutorial`、`data-set`→`dataset`、`spider`→`web-scraping`；共 144 个仓库、152 个标签实例，全部回读验证通过 | 全账号扫描，144 个 fork 的线上 topics 命中替换 |
-| 第七轮 | 2026-11-14 | `4985632` | 6 个词明确不用推荐词替换并保留：`research-development-agent`、`development-agent`、`model-management`、`application-development`、`research-agent`、`visualization`；`visualization` 与 `data-visualization` 并存 | 低热度词映射表 |
-| 第七轮 | 2026-11-14 | `4985632` | 01 / 02 / 05 / 08 / 10.7 组移除 5 个已替换旧 slug，新写法由 11 组锚点词或 08 组既有词承接，避免重复登记；词表 155 → 150 slug | 各组代码块 |
-| 第七轮 | 2026-11-14 | `4985632` | 规范第 4 / 5 条举例同步（`study-material`→`tutorial`、`data-set`→`dataset`）；低热度词映射表改写为处置结论表 | 排序与维护规范、映射表 |
-| 第八轮 | 2026-11-14 | `2f5a085` | 04 组拆为基准块 + 04a 界面与平台（7 词）+ 04b 任务用途（2 词）；新增 `mobile-agent`(04a，全站 91) 与 `linux`(11 组，全站 104,339)；词表 150 → 152 slug | 04、11 |
-| 第八轮 | 2026-11-14 | `2f5a085` | 规范第 5 条新增 04a / 04b 逐词边界定义 9 条，明确 `terminal-agent` 只用于命令行 Agent 且不与 `computer-use` 并列、`web-agent` 不与 `browser-automation` 并列 | 排序与维护规范 |
-| 第八轮 | 2026-11-14 | `2f5a085` | 按新边界重打 31 个仓库的 topics：从 17 个 GUI / 手机 / 研究 / RPC 项目移除 `terminal-agent`，6 个手机项目改用 `mobile-agent`，清理 `ai-operating-system`、`browser-automation`、`windows-agent` 的明确错配 | 线上仓库 |
-
----
 
 ## 已知例外
 
