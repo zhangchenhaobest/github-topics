@@ -24,7 +24,7 @@
 
 ## 01 模型与训练 Models & Training
 
-基础模型、训练方法、评测与模型管理。数据集相关标签已拆分至 [02 数据集](#02-数据集-datasets)。
+基础模型、训练方法、评测与模型管理。
 
 ```
 ai-framework
@@ -42,7 +42,7 @@ time-series-model
 
 ## 02 数据集 Datasets
 
-数据集本体及其管理，含领域数据集。**与数据管理软件 `database` 不是一类**：`data-set` 是数据集，`database` 是数据库软件，归 [08](#08-数据可视化与时空-data-visualization--spatiotemporal)。
+数据集本体及其管理，含领域数据集。
 
 ```
 data-set
@@ -52,14 +52,13 @@ medical-dataset
 
 ## 03 检索增强与知识工程 RAG & Knowledge
 
-检索、语义匹配、知识图谱与结构化查询。`nlp` / `machine-translation` 等通用语言能力（文本→文本）同置本组，从 [07 语音与跨模态转换](#07-语音与跨模态转换-speech--conversion) 移入，不属跨模态转换；`embedding` 为检索侧向量化底座。
+检索、语义匹配、知识图谱与结构化查询。
 
 ```
 context-aware
 embedding
 information-integration
 knowledge-graph
-machine-translation
 nlp
 rag
 semantic-retrieval
@@ -69,7 +68,7 @@ web-search
 
 ## 04 Agent 与编排 Agents & Orchestration
 
-通用智能体框架、编排、记忆与提示工程。领域专属 Agent 归入 [10](#10-垂直领域与场景-domains--use-cases)，科研类 Agent 归 [10.4 科研](#104-科研-research)。
+通用智能体框架、编排、记忆与提示工程。
 
 ```
 agent
@@ -133,10 +132,9 @@ video-generation
 
 ## 07 语音与跨模态转换 Speech & Conversion
 
-语音、文本、图像、视频之间的相互转换。统一采用社区通用术语 `image` / `speech` / `text`，不再混用 `picture` / `voice`；文本→文本的 `machine-translation` 已移入 [03 检索增强与知识工程](#03-检索增强与知识工程-rag--knowledge)。
-
 ```
 image-to-speech
+machine-translation
 speech-to-text
 text-to-speech
 video-to-text
@@ -147,7 +145,7 @@ voice-to-voice
 
 ## 08 数据、可视化与时空 Data, Visualization & Spatiotemporal
 
-数据治理、可视化、数据库软件与时空/图数据分析。`database` 在此表示**数据管理软件**；数据集见 [02](#02-数据集-datasets)。**`data-governance` 仅限元数据、数据质量、血缘、目录与合规**，不得用于数据抽取、爬虫或文档解析（分别用 `data-extraction`、`spider`、`document-parsing`）；`time-series-forecasting` 由 01 组迁入并改名。
+数据治理、可视化、数据库软件与时空/图数据分析。
 
 ```
 data-extraction
@@ -197,8 +195,6 @@ trading-agent
 
 ### 10.2 医疗健康 Healthcare
 
-医疗领域数据集 `medical-dataset` 已归 [02 数据集](#02-数据集-datasets)。
-
 ```
 medical
 medical-evaluation-framework
@@ -216,8 +212,6 @@ protein-structure-prediction
 ```
 
 ### 10.4 科研 Research
-
-科研写作与科研智能体，含通用 Agent 中拆出的 `research-*` 标签。
 
 ```
 deep-research
@@ -246,8 +240,6 @@ working
 
 ### 10.7 学习 Learning
 
-学习资料与语言学习，从原「生物与科研」独立。
-
 ```
 awesome-list
 language-learning
@@ -256,7 +248,7 @@ study-material
 
 ### 10.8 情报与舆情 Intelligence & OSINT
 
-开源情报、新闻聚合与舆情情感分析；用于承接此前误套到 10.1 金融组的资讯/监控类项目。
+开源情报、新闻聚合与舆情情感分析。
 
 ```
 news-monitoring
