@@ -515,12 +515,7 @@ sentiment-analysis
 
 ## 待确认项
 
-
 - `tool` 仍过于宽泛（134 次，原 `utility` 已于第六轮并入），检索价值低；第九轮未批量替换，需逐个补具体标签，暂列后续项。
-- E. 节 `visualization` / `data-visualization` 与 `data-set` / `dataset-management` 两组语义有差别，确认后再决定是否合并；`visualization-models` 已于第九轮合并下线。
-- `data-governance` 线上已清零，slug 按规范第 6 条保留为零使用标准词，后续仅用于真正的数据治理项目。
-- **308 个仓库**仍只有 1–2 个标签，未按「3–6 个」硬性下限强行补齐，后续按项目内容逐步补充。
-- `n8n-workflows` 因 DMCA 屏蔽无法打标签或补 README，见文末「已知例外」。
 
 ## 已知例外
 
