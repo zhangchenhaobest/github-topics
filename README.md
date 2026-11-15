@@ -379,9 +379,18 @@ working
 - `build-agent`（04b）：构建 Agent 或 Agent 应用的框架与教程，描述「造什么」。
 - `train-agent`（04b）：训练或优化 Agent 能力的框架与方法，描述「怎么变强」；两者与操作面正交，可与 04a 任一词组合。
 
+**归档词边界补充判据**（对应第 5 条，用于消除「同一批仓库共享多个近义归档词」的重复感；只明确判据，不删 slug）：
+
+- `research-agent` / `research-development-agent` / `paper-writing-agent` / `deep-research`：四者按「拿 Agent 做什么」区分，同一仓库不并列。`research-agent`＝面向文献、资料与实验的**研究型 Agent**（检索、阅读、归纳）；`research-development-agent`＝面向代码与工程实现的**研发型 Agent**（改代码、跑实验、迭代）；`paper-writing-agent`＝面向论文成稿的**写作型 Agent**（起草、润色、排版）；`deep-research`＝**深度检索**能力或长程调研任务，强调多轮检索与证据链，不表示「会写论文」。跨类型项目取最核心的一个，再配 11 组锚点词。
+- `quantitative-trading` / `trading-agent`：**二选一，不并列**。前者＝策略研究、回测、行情数据平台与交易引擎（`qlib`、`vnpy`、`Lean`、`nautilus_trader`、`OpenBB` 类）；后者＝由 LLM 自主决策或执行交易的 Agent（`TradingAgents`、`Vibe-Trading` 类）。判定以 description 为准：出现「回测 / 策略 / 引擎 / 数据平台」取前者，出现「自主决策 / 自动交易 / 多 Agent 交易」取后者。`finance` 作为 10.1 领域词可并存，但三者不得成套套用。
+- `rag` / `semantic-retrieval`：**不算严格同义，但默认不并列**。`rag`＝检索增强生成的完整链路（检索 + 生成），且已自动兼任 11 组锚点词；`semantic-retrieval`＝纯语义检索能力。默认保留 `rag`、删 `semantic-retrieval`；仅当仓库是纯检索引擎（README 明确无生成环节）时反过来保留 `semantic-retrieval`，并另补 1 个 11 组锚点词。删 `rag` 后语义标签不足 3 个的，按 description 补领域词 + 锚点词，不硬留 `rag`。
+- `visualization` / `data-visualization`：低热度词映射表已确认「并存不视为同义」。线上执行示例：`superset`、`dataease` 等 BI / 看板平台打 `data-visualization`（数据驱动的分析任务），`diagrams`、`drawnix` 等通用绘图 / 白板打 `visualization`（表达形式）；两者语义重叠时取其一，不并列凑数。
+
 6. **清单定位与新增流程**：清单是**标准词表**，不是线上标签的镜像。新增 slug 以「是否有通用检索价值」为准，**允许暂时零使用**，不必先有仓库在用。流程：先判断归属组 → 检查是否与已有 slug 重复或同义 → 插入组内字母序位置 → 在变更映射表登记（含基线 commit 与前后位置）。候选词若在 README 全文命中超过 30% 的仓库，视为文档与部署说明噪声（如 `documentation`），不纳入；技术栈、部署形态与属性词同理。**例外**：11 组社区通用锚点词专为对外检索设立，允许收录技术栈词，但每个仓库最多使用 2 个。
 7. **格式**：组内用纯文本代码块，一行一个 slug，方便直接复制去 GitHub 打标签；不再使用 `<br>` 硬换行。
 8. **打标执行**：每个仓库尽量 **3–6 个标签**，其中**至少 1 个来自 11 组社区通用锚点词**（带 `working` 状态位时语义标签取 3–5 个）；精简兼顾覆盖；**禁止同义标签并列**（如 `rag` 与全称、`text-to-speech` 与 `tts`）；新增标签优先用于修正内容错配，不要为凑数硬套泛标签；仓库应补全 `description` 与 README 的中文一句话简介。**禁止把固定标签组合成套套用**（如 `development-agent`+`research-agent`+`research-development-agent`、`data-extraction`+`data-governance`、`finance`+`quantitative-trading`+`trading-agent`）；每个标签都应能在 description 或 README 首段找到依据。**`working` 为作者保留的状态标签，任何批量整理均不得删除。**
+
+**04a 校验提醒**：`ai-operating-system` / `computer-use` / `windows-agent` / `mobile-agent` / `browser-automation` / `web-agent` / `terminal-agent` 属于 04a 操作面词，**每个仓库最多 1–2 个**，且不与近义操作面词并列（`web-agent` 与 `browser-automation` 不并列、`computer-use` 与 `terminal-agent` 不并列；`windows-agent` 仅在 README 明确限定 Windows 时与 `computer-use` 并存）。批量打标后应单独跑一次该规则校验，避免「一套标签套所有仓库」。
 
 
 
