@@ -1,3 +1,27 @@
+# github-topics
+
+[English](#english) | [简体中文](#简体中文)
+
+---
+
+## English
+
+A standard GitHub Topics vocabulary organized by model, capability, data and engineering, and industry scenarios, with community anchor terms, status tags and tagging guidelines.
+
+
+[简体中文](#简体中文)
+
+---
+
+## 简体中文
+
+按「模型底座 → 能力层 → 数据与工程 → 行业场景」组织的 GitHub Topics 标准词表、社区通用锚点词、仓库状态标签与打标维护规范。
+
+
+[English](#english)
+
+---
+
 # GitHub Topics 分类清单
 
 一份用于给仓库打标签的 GitHub Topics 清单，按「模型底座 → 能力层 → 数据与工程 → 行业场景」四段组织：01–05 为模型与能力层，06–07 为多模态能力，08–09 为数据与工程，10 为行业场景；11 为社区通用锚点词（对外检索），12 为仓库状态标签。
