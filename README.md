@@ -196,6 +196,7 @@ github-app-store
 github-topics
 lims
 network
+reverse-engineering
 security
 virtualization
 web-development
@@ -313,6 +314,7 @@ pandas
 python
 pytorch
 rest-api
+rust
 selenium
 taxonomy
 time-series
@@ -380,7 +382,19 @@ working
 
 
 
+## 变更映射表
+
+登记每次词表调整，含基线 commit、组内前后位置与线上处置。基线口径为变更前的 `main` 分支 HEAD；全站仓库数按 `topic:slug` 实测。
+
+| 轮次 / 日期 | 变更 | 归属组 | 组内位置（前 → 后） | 基线 commit | 线上处置 |
+|---|---|---|---|---|---|
+| 第九轮 / 2026-11-15 | 新增 `reverse-engineering`（全站 16,774） | 09 开发与系统 | `network` → `security` | `cc76bdde34b3` | `craft-anything` 补打 |
+| 第九轮 / 2026-11-15 | 新增 `rust`（全站 156,578） | 11 社区通用锚点词 | `rest-api` → `selenium` | `cc76bdde34b3` | `obscura`、`craft-anything` 补打 |
+| 第九轮 / 2026-11-15 | 清除非词表遗留标签 `agents` / `study-materials`，对应标准词为 `agent`（04）/ `tutorial`（11） | 不占词表位置 | — | `cc76bdde34b3` | `agentic-design-patterns-cn` 的 `PUT /topics` 返回 451，未能替换，见[已知例外](#已知例外) |
+
+> 两个旧标签从未进入 01–12 的标准词表，不计入 slug 统计；本次仅清除 README 中的记载并登记失败原因。与 [低热度词映射表](#低热度词映射表) 的区别：该表记录「保留 / 替换」的归档词判定，本表记录词表结构变更。
+
 ## 已知例外
 
-- **`agentic-design-patterns-cn`**：因 DMCA 版权限制（GitHub 于 2026-03-05 依据 Springer Nature 的投诉屏蔽该仓库，API 返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics。第五轮单复数改名后，该仓库仍保留旧标签 `agents`、`study-materials`。
+- **`agentic-design-patterns-cn`**：因 DMCA 版权限制（GitHub 于 2026-03-05 依据 Springer Nature 的投诉屏蔽该仓库，API 返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics。第九轮（2026-11-15）尝试将线上遗留的非词表标签 `agents` → `agent`（04）、`study-materials` → `tutorial`（11），`PUT /repos/.../topics` 仍返回 451，未能替换；当前线上仍为 `agents`、`multi-agent`、`study-materials`。这两个旧标签从未进入标准词表，不计入词表 slug 统计。
 - **`n8n-workflows`**：因 DMCA 版权限制（GitHub 于 2025-08-26 屏蔽，API 同样返回 `451 Repository access blocked`），账号无法修改该仓库的 Topics 或补 README，是账号内唯一零标签仓库。
